@@ -6,7 +6,7 @@ package com.stulsoft.ysps.penum
 
 /**
  * Playing with Scala - conversions with Enumeration
- * 
+ *
  * @author Yuriy Stul
  *
  */
@@ -14,6 +14,8 @@ object EnumConversions {
 
 	/**
 	 * Declaration of MyType enumeration.
+	 * 
+	 * First id is 0.
 	 *
 	 * @author Yuriy Stul
 	 *
@@ -24,6 +26,21 @@ object EnumConversions {
 	}
 
 	import MyType._
+
+	/**
+	 * Declaration of MyType2 enumeration.
+	 *
+	 * First id is 100
+	 * 
+	 * @author Yuriy Stul
+	 *
+	 */
+	object MyType2 extends Enumeration(100) {
+		type MyType2 = Value
+		val Type21, Type22, Type23 = Value
+	}
+
+	import MyType2._
 
 	/**
 	 * Main method for testing.
@@ -62,10 +79,16 @@ object EnumConversions {
 		} catch {
 			case e: NoSuchElementException => println(s"MyType element with name Type2ERROR doesn't exist! Error: ${e.getMessage}")
 		}
+		println
+
+		// Enumerate all values for MyType2
+		MyType2.values.foreach { t => demoMyType2(t) }
+		println
+
 	}
 
 	/**
-	 * Outputs details of Enumeration.
+	 * Outputs details of Enumeration for MyType.
 	 *
 	 * @param t type to output details
 	 */
@@ -73,4 +96,12 @@ object EnumConversions {
 		println(s"t: $t, t.id = ${t.id}")
 	}
 
+	/**
+	 * Outputs details of Enumeration for MyType2.
+	 *
+	 * @param t type to output details
+	 */
+	def demoMyType2(t: MyType2): Unit = {
+		println(s"t: $t, t.id = ${t.id}")
+	}
 }
