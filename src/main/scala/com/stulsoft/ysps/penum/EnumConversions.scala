@@ -14,7 +14,7 @@ object EnumConversions {
 
 	/**
 	 * Declaration of MyType enumeration.
-	 * 
+	 *
 	 * First id is 0.
 	 *
 	 * @author Yuriy Stul
@@ -31,7 +31,7 @@ object EnumConversions {
 	 * Declaration of MyType2 enumeration.
 	 *
 	 * First id is 100
-	 * 
+	 *
 	 * @author Yuriy Stul
 	 *
 	 */
@@ -41,6 +41,19 @@ object EnumConversions {
 	}
 
 	import MyType2._
+
+	/**
+	 * Declaration of Enumeration with a text values.
+	 *
+	 * @author Yuriy Stul
+	 *
+	 */
+	object MyTypeWithStrValues extends Enumeration {
+		type MyTypeWithStrValues = Value
+		val One = Value("1")
+		val Two = Value("2")
+		val Less = Value("<")
+	}
 
 	/**
 	 * Main method for testing.
@@ -84,6 +97,10 @@ object EnumConversions {
 		// Enumerate all values for MyType2
 		MyType2.values.foreach { t => demoMyType2(t) }
 		println
+		
+		// Enumeration with initial text values
+		demoMyTypeWithStrValues
+		println
 
 	}
 
@@ -103,5 +120,21 @@ object EnumConversions {
 	 */
 	def demoMyType2(t: MyType2): Unit = {
 		println(s"t: $t, t.id = ${t.id}")
+	}
+
+	/**
+	 * Demonstrates usage of Enumeration with text values.
+	 */
+	def demoMyTypeWithStrValues {
+		println(s"Values of the MyTypeWithStrValues enumeration: ${MyTypeWithStrValues.values}")
+		val one = MyTypeWithStrValues.One
+		println(s"one = $one")
+		val two = MyTypeWithStrValues.Two
+		println(s"two = $two")
+		val less = MyTypeWithStrValues.Less
+		println(s"less = $less")
+		val fromText = MyTypeWithStrValues.withName("2")
+		println(s"fromtext = $fromText")
+		MyTypeWithStrValues.values.foreach { x => println(s"x=$x, x.id=${x.id}") }
 	}
 }
