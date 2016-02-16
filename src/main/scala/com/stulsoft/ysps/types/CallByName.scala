@@ -21,11 +21,16 @@ object CallByName {
 		println("<==nano")
 		System.nanoTime
 	}
-	
-	def f(x:Int) = {
+
+	/**
+	 * Ordinary function
+	 * @param x parameter
+	 * @return x * 3
+	 */
+	def f(x: Int) = {
 		println("==>f")
 		println("<==f")
-		x *3
+		x * 3
 	}
 
 	/**
@@ -59,23 +64,23 @@ object CallByName {
 
 	def main(args: Array[String]): Unit = {
 		println("==>main")
-		
+
 		println()
 		println("callByName(nano()):")
 		println(s"callByName(nano()) = ${callByName(nano())}")
-		
+
 		println()
 		println("callByName(123):")
 		println(s"callByName(123) = ${callByName(123)}")
-		
+
 		println()
 		println("callByName(f(7)):")
 		println(s"callByName(f(7)) = ${callByName(f(7))}")
-		
+
 		println()
 		println("callByValue(nano()):")
 		println(s"callByValue(nano()) = ${callByValue(nano())}")
-		
+
 		println("<==main")
 	}
 }
