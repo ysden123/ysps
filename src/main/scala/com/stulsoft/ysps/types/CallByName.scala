@@ -1,0 +1,67 @@
+/**
+ * Copyright (c) 2016, Yuriy Stul. All rights reserved
+ */
+
+package com.stulsoft.ysps.types
+
+/**
+ * Call by name and call by value.
+ *
+ * @author Yuriy Stul
+ *
+ */
+object CallByName {
+	/**
+	 * A function for test.
+	 *
+	 * @return the time in nanoseconds
+	 */
+	def nano() = {
+		println("==>nano")
+		println("<==nano")
+		System.nanoTime
+	}
+
+	/**
+	 * Function with a parameter by name.
+	 *
+	 * Each time, when the function uses the parameter, the function calls the parameter like a function.
+	 *
+	 * @param t specifies a parameter; it may be either value of type Long, e.g. 123, or a function with type Long, e.g. nano().
+	 * @return the value of parameter: result of call the t, if the t is a function; same as was in call of function, if the t is a value.
+	 */
+	def callByName(t: => Long) = {
+		println("==>callByName")
+		println(s"(1) Parameter: $t")
+		println(s"(2) Parameter: $t")
+		println("<==callByName")
+		t
+	}
+
+	/**
+	 * Function with an ordinary parameter.
+	 * @param t specifies the parameter of type Long.
+	 * @return the value of parameter: same as was in call of function.
+	 */
+	def callByValue(t: Long) = {
+		println("==>callByValue")
+		println(s"(1) Parameter: $t")
+		println(s"(2) Parameter: $t")
+		println("<==callByValue")
+		t
+	}
+
+	def main(args: Array[String]): Unit = {
+		println("==>main")
+		println()
+		println("callByName(nano()):")
+		println(s"callByName(nano()) = ${callByName(nano())}")
+		println()
+		println("callByName(123):")
+		println(s"callByName(123) = ${callByName(123)}")
+		println()
+		println("callByValue(nano()):")
+		println(s"callByValue(nano()) = ${callByValue(nano())}")
+		println("<==main")
+	}
+}
