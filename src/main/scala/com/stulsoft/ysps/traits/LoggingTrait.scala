@@ -18,9 +18,27 @@ object LoggingTrait {
 		println("==>main")
 		val t = new TestClass(15)
 		t.foo(25)
-		
+
 		val t1 = new TestClass1(16)
 		t1.foo()
+
+		println()
+
+		// Empty logging
+		println("Empty logging")
+		val t21 = new TestClass2(17)
+
+		println()
+
+		// With logging
+		println("Console logging")
+		val t22 = new TestClass2(18) with ConsoleLogger;
+		
+		println()
+		
+		// With file logging
+		println("'File' logging")
+		val t23 = new TestClass2(19) with FileLogger;
 		println("<==main")
 	}
 }
@@ -57,7 +75,7 @@ class TestClass(val a1: Int) extends Log {
 
 /**
  * Just a trait
- * 
+ *
  * @author Yuriy Stul
  *
  */
@@ -67,7 +85,7 @@ trait T123 {
 
 /**
  * Test class for T123 with Log
- * 
+ *
  * @author Yuriy Stul
  *
  */
@@ -77,4 +95,44 @@ class TestClass1(val a1: Int) extends T123 with Log {
 		println("The foo")
 		log2("The foo")
 	}
+}
+
+/**
+ * Declare interface Logged with empty implementation of log function.
+ *
+ * @author Yuriy Stul
+ *
+ */
+trait Logged {
+	def log(message: String): Unit = {}
+}
+
+/**
+ * Console implementation of the logger.
+ *
+ * @author Yuriy Stul
+ *
+ */
+trait ConsoleLogger extends Logged {
+	override def log(message: String): Unit = { println(message) }
+}
+
+/**
+ * 'File' implementation of the logger.
+ *
+ * @author Yuriy Stul
+ *
+ */
+trait FileLogger extends Logged {
+	override def log(message: String): Unit = { println(s"(file): $message") }
+}
+
+/**
+ * Test class with logging (Logged).
+ *
+ * @author Yuriy Stul
+ *
+ */
+class TestClass2(val a: Int) extends Logged {
+	log(s"a = $a")
 }
