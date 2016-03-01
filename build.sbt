@@ -8,4 +8,5 @@ lazy val root = (project in file(".")).
     	"com.novocode" % "junit-interface" % "0.11" % Test
     ),
     scalacOptions in (Compile, doc) ++= Seq("-author")
+//    scalacOptions in (Compile, doc) ++= Seq("-author", "-diagrams-debug")
 )
