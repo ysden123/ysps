@@ -7,12 +7,13 @@ object Strings {
 
   def main(args: Array[String]): Unit = {
     println("==>main")
-    formatting
-    compare
+    formatting()
+    compare()
+    outPutter()
     println("<==main")
   }
 
-  def formatting: Unit = {
+  def formatting(): Unit = {
     println("==>formatting")
     val s1 = "the string 1"
     val i1 = 1
@@ -25,12 +26,30 @@ object Strings {
     println("<==formatting")
   }
 
-  def compare: Unit ={
+  def compare(): Unit = {
     println("==>compare")
     val s1 = "test 1"
     val s2 = "test 1"
     println(s1 == s2)
     println(s1.compare(s2))
     println("<==compare")
+  }
+
+  def outPutter(): Unit = {
+    println("==>outPutter")
+    val s = "tTgGhH"
+    s.toLowerCase match {
+      case "ttgghh" => println("very good!")
+      case _ => println("very bad!")
+    }
+
+    println(s.toLowerCase match {
+      case "ttgghh" => "very good!"
+      case _ => "very bad!"
+    })
+
+    println(if (s.toLowerCase == "ttgghh") "very good!" else "very bad!" )
+    
+    println("<==outPutter")
   }
 }
