@@ -49,7 +49,7 @@ object Strings {
     })
 
     println(if (s.toLowerCase == "ttgghh") "very good!" else "very bad!" )
-    
+
     println("<==outPutter")
   }
 }
