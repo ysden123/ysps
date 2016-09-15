@@ -12,9 +12,9 @@ import scala.io.StdIn
 object EitherSample {
   def main(args: Array[String]): Unit = {
     println("==>main")
-//    test1()
+    test1()
     test2()
-//    test3()
+    test3()
     println("<==main")
   }
 
@@ -41,25 +41,21 @@ object EitherSample {
     val l: Either[String, Int] = Left("flower")
     val r: Either[String, Int] = Right(12)
 
-//    println(l.left)
-//    println(r.left)
-//    println(l.right)
-//    println(r.right)
-//
-//    println("====================")
-//    println(l.left.map(_.size): Either[Int, Int])
-    println(l.left.map(x => x.size))
-    println(l.left.map(x => x.getClass.getName))
-//    println(r.left.map(_.size): Either[Int, Int])
-    println(r.left.map(x => x.size))
-    println(r.left.map(x => x.getClass.getName))
-//    println(l.right.map(_.toDouble): Either[String, Double])
-//    println(r.right.map(_.toDouble): Either[String, Double])
+    println(s"l.left = ${l.left}")
+    println(s"l.right = ${l.right}")
+    println(s"r.left = ${r.left}")
+    println(s"r.right = ${r.right}")
+
+    println("====================")
+    println(s"l.left.map(_.size): Either[Int, Int]=${l.left.map(_.length): Either[Int, Int]}")
+    println(s"l.right.map(_.toDouble): Either[String, Double]=${l.right.map(_.toDouble): Either[String, Double]}")
+    println(s"r.left.map(_.size): Either[Int, Int]=${r.left.map(_.length): Either[Int, Int]}")
+    println(s"r.right.map(_.toDouble): Either[String, Double]=${r.right.map(_.toDouble): Either[String, Double]}")
     println("<==test2")
   }
 
   def validate(t: String): Either[String, String] = {
-    return if (t.size > 0) Right(t) else Left("***ERROR")
+    if (t.nonEmpty) Right(t) else Left("***ERROR")
   }
 
   def test3(): Unit ={
