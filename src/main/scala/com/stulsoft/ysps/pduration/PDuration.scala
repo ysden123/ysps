@@ -9,7 +9,7 @@ import scala.concurrent.duration._
 object PDuration {
   def main(args: Array[String]): Unit = {
     println("==>main")
-    var fiveSec = 5 seconds;
+    var fiveSec = 5.seconds
     println(s"fiveSec=$fiveSec")
     fiveSec = 15.seconds
     println(s"fiveSec=$fiveSec")
