@@ -8,10 +8,28 @@ package com.stulsoft.ysps.pmaybe
 object MaybeWithMap {
 
   abstract class Maybe[+T] {
+    /**
+      * Performs function "f" for each element with type "T" and returns "Maybe" for type "U"
+      * or
+      * converts each element "T" to "U"
+      *
+      * @param f the conversion function
+      * @tparam U result type
+      * @return Maybe for type U
+      */
     def map[U](f: T => U): Maybe[U]
   }
 
   case class Just[T](get: T) extends Maybe[T] {
+    /**
+      * Performs function "f" for each element with type "T" and returns "Just" for type "U"
+      * or
+      * converts each element "T" to "U"
+      *
+      * @param f the conversion function
+      * @tparam U result type
+      * @return Just for type U
+      */
     def map[U](f: T => U) = Just(f(get))
   }
 
