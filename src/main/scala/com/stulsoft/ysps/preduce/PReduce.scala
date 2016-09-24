@@ -22,7 +22,7 @@ object PReduce {
   }
 
   def generatePersons(): List[Person] = {
-    List(new Person(10, 120, "person 1"), new Person(11, 130, "person 2"), new Person(12, 130, "person 3"))
+    List(Person(10, 120, "person 1"), Person(11, 130, "person 2"), Person(12, 130, "person 3"))
   }
 
   /**
@@ -38,6 +38,7 @@ object PReduce {
 
   /**
     * Non-associative reducing. Subtracts data members of 2nd instance from data members of 1st instance (except names)
+    *
     * @param p1 first Person instance
     * @param p2 second Person instance
     * @return new Person(ag1 - ag2, height1 - height2, name1 + name2)
