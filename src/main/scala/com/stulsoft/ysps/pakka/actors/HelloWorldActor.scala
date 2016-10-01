@@ -7,6 +7,7 @@ import akka.actor.{Actor, Props}
   */
 class HelloWorldActor extends Actor {
   override def preStart(): Unit = {
+    println("==>HelloWorldActor.preStart")
     // create the greeter actor
     val greeter = context.actorOf(Props[GreeterActor], "greeter")
 
@@ -18,6 +19,7 @@ class HelloWorldActor extends Actor {
     // When we receive the 'Done' message, stop this actor
     // (which if this is still the initialActor will trigger the deathwatch and stop the entire ActorSystem)
     case GreeterMessages.Done => {
+      println("==>HelloWorldActor.receive")
       context.stop(self)
     }
   }

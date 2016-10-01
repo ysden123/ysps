@@ -19,10 +19,8 @@ class GreeterActor extends Actor with ActorLogging {
   def receive = {
     case GreeterMessages.Greet =>
       val greetMsg = "Hello World!"
-
-      println(greetMsg)
+      println(s"===>GreeterActor.receive. greetMsg: $greetMsg")
       log.info(greetMsg)
-
       sender() ! GreeterMessages.Done // Send the 'Done' message back to the sender
   }
 }
