@@ -10,6 +10,6 @@ package com.stulsoft.ysps
  * @author Yuriy Stul
  *
  */
-package object future {
+package object pfuture {
   
 }
