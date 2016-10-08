@@ -2,7 +2,7 @@
   * Copyright (c) 2016, Yuriy Stul. All rights reserved
   */
 
-package com.stulsoft.ysps.future
+package com.stulsoft.ysps.pfuture
 
 import scala.concurrent.{Future, Await}
 import scala.concurrent.duration._
