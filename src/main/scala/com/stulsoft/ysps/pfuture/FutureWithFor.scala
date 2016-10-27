@@ -1,8 +1,10 @@
 package com.stulsoft.ysps.pfuture
 
 import com.typesafe.scalalogging.LazyLogging
-import scala.concurrent.Future
+
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.duration._
+import scala.concurrent.{Await, Future}
 import scala.util.{Failure, Success}
 
 /**
@@ -59,7 +61,7 @@ object FutureWithFor extends App with LazyLogging {
     logger.info("AFTER onComplete")
 
     // important for a little parallel demo: keep the jvm alive
-    sleep(3000)
+    Await.result(result, 3.seconds)
 
     logger.info("End")
   }
