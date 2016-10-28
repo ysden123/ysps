@@ -45,11 +45,8 @@ object FutureWithException extends App with LazyLogging {
       *logger.info("result2: {}", result2)
       * ***********************************/
 
-    val result3 = Await.ready(worker(false), 5.seconds).value
-    resultAnalyzer(result3, 3)
-
-    val result4 = Await.ready(worker(true), 5.seconds).value
-    resultAnalyzer(result4, 4)
+    resultAnalyzer(Await.ready(worker(false), 5.seconds).value, 3)
+    resultAnalyzer(Await.ready(worker(true), 5.seconds).value, 4)
   }
 
   test1()
