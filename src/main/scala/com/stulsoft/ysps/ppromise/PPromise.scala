@@ -1,8 +1,12 @@
+/*
+ * Copyright (c) 2016. StulSoft, Yuriy Stul
+ */
+
 package com.stulsoft.ysps.ppromise
 
+import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.{Future, Promise}
 import scala.util.Random
-import scala.concurrent.ExecutionContext.Implicits.global
 
 /**
   * Created by Yuriy Stul on 10/8/2016.
