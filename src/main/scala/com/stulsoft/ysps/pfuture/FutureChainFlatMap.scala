@@ -13,7 +13,7 @@ import scala.concurrent.Future
   * Demonstrates Future chain using flatMap
   * Created by Yuriy Stul on 10/29/2016.
   */
-object FutureChain extends App with LazyLogging {
+object FutureChainFlatMap extends App with LazyLogging {
   logger.info("Start")
 
   // 1st future
@@ -36,12 +36,12 @@ object FutureChain extends App with LazyLogging {
     theF2 =>
       Future {
         Thread.sleep(500)
-        theF2 + "+ 3"
+        theF2 + " + 3"
       }
   }
 
   f3 onSuccess {
-    case completedResult => logger.info("Completed result {}", completedResult)
+    case completedResult => logger.info("Completed result {}", completedResult) // result is "F1 + 2 + 3"
   }
 
   Thread.sleep(1600)
