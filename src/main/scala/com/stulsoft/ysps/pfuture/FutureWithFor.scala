@@ -1,12 +1,11 @@
 package com.stulsoft.ysps.pfuture
 
 import com.typesafe.scalalogging.LazyLogging
-import org.omg.CORBA.SystemException
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration._
 import scala.concurrent.{Await, Future}
-import scala.util.{Failure, Success, Try}
+import scala.util.{Failure, Success}
 
 /**
   * Created by Yuriy Stul on 10/27/2016.
@@ -68,6 +67,98 @@ object FutureWithFor extends App with LazyLogging {
     logger.info("End")
   }
 
+  def test02(): Unit = {
+    logger.info("Start")
+    val f = Future {
+      5
+    }
+    val g = Future {
+      3
+    }
+    val h = for {
+      x: Int <- f // returns Future(5)
+      y: Int <- g // returns Future(3)
+    } yield x + y
+    Await.result(h, 3.seconds)
+    logger.info("Result: {}", h)
+    logger.info("End")
+  }
+
+  def test03(): Unit = {
+    logger.info("Start")
+    def f(): Future[Int] = {
+      Future {
+        5
+      }
+    }
+
+    def g(): Future[Int] = {
+      Future {
+        3
+      }
+    }
+    val h = for {
+      x: Int <- f() // returns Future(5)
+      y: Int <- g() // returns Future(3)
+    } yield x + y
+    Await.result(h, 3.seconds)
+    logger.info("Result: {}", h)
+    logger.info("End")
+  }
+
+  def test04(): Unit = {
+    logger.info("Start")
+    def f(): Future[Int] = {
+      Future {
+        5
+      }
+    }
+
+    def g(f: Int): Future[Int] = {
+      Future {
+        f * 3
+      }
+    }
+    val h = for {
+      x: Int <- f() // returns Future(5)
+      y: Int <- g(x) // returns Future(15)
+    } yield y
+    Await.result(h, 3.seconds)
+    logger.info("Result: {}", h)
+    logger.info("End")
+  }
+
+  def test05(): Unit = {
+    logger.info("Start")
+    def f(): Future[Int] = {
+      Future {
+        throw new Exception("failed f (test)")
+      }
+    }
+
+    def g(f: Int): Future[Int] = {
+      Future {
+        f * 3
+      }
+    }
+    try {
+      val h = for {
+        x: Int <- f() // returns Future(5)
+        y: Int <- g(x) // returns Future(15)
+      } yield y
+      Await.result(h, 3.seconds)
+      logger.info("Result: {}", h)
+    }
+    catch {
+      case e: Exception => logger.error("Error: {}", e.getMessage)
+    }
+    logger.info("End")
+  }
+
   test01()
+  test02()
+  test03()
+  test04()
+  test05()
   logger.info("End")
 }
