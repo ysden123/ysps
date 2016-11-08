@@ -20,7 +20,7 @@ object StringUtils {
       *
       * @return incremented string
       */
-    def increment = s.map(c => (c + 1).toChar)
+    def increment: String = s.map(c => (c + 1).toChar)
   }
 
 }
