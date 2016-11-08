@@ -10,7 +10,9 @@ package com.stulsoft.ysps.pimlicit
 object StringUtils {
 
   /**
+    * Demonstrates implicit class
     *
+    * @see [[ImplicitClassTest]]
     * @param s a string
     */
   implicit class ImplicitClass(s: String) {
