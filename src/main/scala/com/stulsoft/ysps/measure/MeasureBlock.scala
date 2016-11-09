@@ -8,7 +8,7 @@ import com.typesafe.scalalogging.LazyLogging
   */
 object MeasureBlock extends App with LazyLogging {
   logger.info("Start")
-  def measureTime[RESULT](block: => RESULT) = {
+  def measureTime[T](block: => T) = {
     val startTime = System.nanoTime()
     val result = block
     val endTime = System.nanoTime()
