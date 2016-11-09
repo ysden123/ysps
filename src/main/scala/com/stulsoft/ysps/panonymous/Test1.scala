@@ -1,5 +1,7 @@
 package com.stulsoft.ysps.panonymous
 
+import scala.language.reflectiveCalls
+
 /**
   * Playing with anonymous objects.
   *
