@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2016. Yuriy Stul
+ */
+
 package com.stulsoft.ysps.pcollection
 
 /**
