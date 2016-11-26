@@ -2,7 +2,7 @@
  * Copyright (c) 2016. StulSoft, Yuriy Stul
  */
 
-package com.stulsoft.ysps.pimlicit
+package com.stulsoft.ysps.pimplicit
 
 /**
   * Created by Yuriy Stul on 11/8/2016.

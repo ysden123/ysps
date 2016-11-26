@@ -2,9 +2,9 @@
  * Copyright (c) 2016. StulSoft, Yuriy Stul
  */
 
-package com.stulsoft.ysps.pimlicit
+package com.stulsoft.ysps.pimplicit
 
-import com.stulsoft.ysps.pimlicit.StringUtils._
+import com.stulsoft.ysps.pimplicit.StringUtils._
 import com.typesafe.scalalogging.LazyLogging
 
 /**
