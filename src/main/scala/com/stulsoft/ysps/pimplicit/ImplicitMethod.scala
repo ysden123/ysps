@@ -2,7 +2,7 @@
  * Copyright (c) 2016. StulSoft, Yuriy Stul
  */
 
-package com.stulsoft.ysps.pimlicit
+package com.stulsoft.ysps.pimplicit
 
 import com.typesafe.scalalogging.LazyLogging
 
@@ -16,14 +16,14 @@ import com.typesafe.scalalogging.LazyLogging
 object ImplicitMethod extends App with LazyLogging {
   logger.info("Start")
 
-  def yo(implicit s: String) = logger.info("Yo, " + s)
+  private def yo(implicit s: String) = logger.info("Yo, " + s)
 
   yo("Yuriy")
 
   implicit val fred = "Fred"
   yo
 
-  def add(implicit s: Int) = logger.info("{}", s + 1)
+  private def add(implicit s: Int) = logger.info("{}", s + 1)
 
   add(3)
 
