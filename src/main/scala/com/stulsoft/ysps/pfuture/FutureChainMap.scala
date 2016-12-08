@@ -47,10 +47,10 @@ object FutureChainMap extends App with LazyLogging {
       }
   }
 
-  f3 onSuccess {
-    case completedResult =>
+  f3 onComplete  {
+    completedResult =>
       logger.info("Completed result {}", completedResult) // result is List() - empty list!
-      logger.info("Result value is {}", completedResult.value)
+      logger.info("Result value is {}", completedResult)
   }
 
   Thread.sleep(1600)

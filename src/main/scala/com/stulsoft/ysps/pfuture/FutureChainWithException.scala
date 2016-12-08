@@ -8,6 +8,7 @@ import com.typesafe.scalalogging.LazyLogging
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
+import scala.util.{Failure, Success}
 
 /**
   * Created by Yuriy Stul on 10/29/2016.
@@ -23,7 +24,7 @@ object FutureChainWithException extends App with LazyLogging {
   // 2nd future. Waits completion of the 1st future
   // Throws exception
   val f2: Future[String] = f1.flatMap {
-    theF1 =>
+    _ =>
       Future {
         Thread.sleep(500)
         //        s"$theF1 + 2"
@@ -40,15 +41,17 @@ object FutureChainWithException extends App with LazyLogging {
       }
   }
 
-  f3 onSuccess {
-    case completedResult => logger.info("Completed result {}", completedResult)
+  f3 foreach {
+    result => logger.info("Completed result {}", result)
   }
-  f3 onFailure {
-    case e => logger.error("Failure {}", e.getMessage)
+  f3.onComplete {
+    case Success(s) => logger.info("Success: {}",s)
+    case Failure(e) => logger.error("(1) Failure {}", e.getMessage)
   }
+
+  f3.failed.foreach(e => logger.error("(2) Failure {}", e.getMessage))
 
   Thread.sleep(1600)
 
   logger.info("End")
-
 }

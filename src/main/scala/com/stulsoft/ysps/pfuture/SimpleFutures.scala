@@ -46,9 +46,7 @@ object SimpleFutures {
     /**
       * Handler for success
       */
-    sumF onSuccess {
-      case s => println(s"sumF was calculated: s = $s")
-    }
+    sumF foreach (s => println(s"sumF was calculated: s = $s"))
 
     /**
       * Define multiplier on 2
@@ -92,8 +90,8 @@ object SimpleFutures {
     /**
       * Handler for success
       */
-    sumF onSuccess {
-      case s => println(s"sumF was calculated: s = $s")
+    sumF foreach {
+      s => println(s"sumF was calculated: s = $s")
     }
 
     val result = Await.result(sumF, 2.seconds)
@@ -114,8 +112,8 @@ object SimpleFutures {
       (1L to 100000L).sum
     }
 
-    sumF3.onSuccess{
-      case s => println(s"sumF was calculated: s = $s")
+    sumF3.foreach{
+      s => println(s"sumF was calculated: s = $s")
     }
 
     val result = Await.result(sumF3, 2.seconds)

@@ -39,10 +39,8 @@ object PromiseExample2 extends App with LazyLogging {
   logger.info("Main started")
 
   val p = process()
-  p onSuccess {
-    case r =>
-      logger.info(r)
-  }
+  p foreach { r => logger.info(r) }
+
   Thread.sleep(1500)
 
   logger.info("Main ended")

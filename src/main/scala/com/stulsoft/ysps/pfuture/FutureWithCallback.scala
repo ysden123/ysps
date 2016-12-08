@@ -14,14 +14,13 @@ object FutureWithCallback extends App {
 
   def test1(): Unit = {
     println("==>test1")
+
     def sum = Future {
       println(s"We are inside sum. Thread ID = ${Thread.currentThread.getId}")
       (1L to 100000L).sum
     }
 
-    sum.onSuccess {
-      case s => println(s"completed sum with $s")
-    }
+    sum.foreach(s => println(s"completed sum with $s"))
 
     val sAsList = sum
 
@@ -37,13 +36,13 @@ object FutureWithCallback extends App {
 
   def test2(): Unit = {
     println("==>test2")
+
     def f = Future {
       Thread.sleep(500)
       42
     }
-    f.onSuccess({
-      case v => println(s"Succeeded with $v!")
-    })
+
+    f.foreach { v => println(s"Succeeded with $v!") }
 
     f.onComplete({
       case Success(v) => println(s"Successfully completed with value $v")
