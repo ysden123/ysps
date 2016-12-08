@@ -17,13 +17,13 @@ object PPromise extends App {
   println("==>main")
   // Promise can be used to compose type safe future
   val willYouMarryMe = Promise[Boolean]
-  willYouMarryMe.future onSuccess {
+  willYouMarryMe.future foreach {
     //    case yes => println("Yes! :D")
-    case _ => println("Yes! :D")
+    _ => println("Yes! :D")
   }
-  willYouMarryMe.future onFailure {
+  willYouMarryMe.future.failed foreach {
     //    case no => println("No! :(")
-    case _ => println("No! :(")
+    _ => println("No! :(")
   }
 
   Future {
