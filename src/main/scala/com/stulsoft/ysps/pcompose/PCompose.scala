@@ -5,7 +5,7 @@
 package com.stulsoft.ysps.pcompose
 
 /**
-  * Olaying with compose
+  * Playing with compose
   *
   * @author Yuriy Stul
   */
