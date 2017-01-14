@@ -4,8 +4,6 @@
 
 package com.stulsoft.ysps.traits
 
-import java.lang.StackTraceElement
-
 /**
  * Playing with traits - trait for logging.
  *
@@ -26,19 +24,19 @@ object LoggingTrait {
 
 		// Empty logging
 		println("Empty logging")
-		val t21 = new TestClass2(17)
+		new TestClass2(17)
 
 		println()
 
 		// With logging
 		println("Console logging")
-		val t22 = new TestClass2(18) with ConsoleLogger;
+		new TestClass2(18) with ConsoleLogger
 		
 		println()
 		
 		// With file logging
 		println("'File' logging")
-		val t23 = new TestClass2(19) with FileLogger;
+		new TestClass2(19) with FileLogger
 		println("<==main")
 	}
 }
@@ -50,9 +48,9 @@ object LoggingTrait {
  *
  */
 trait Log {
-	def log(message: String) = println(message)
+	def log(message: String): Unit = println(message)
 	def log2(message: String): Unit = {
-		val stackTraceElements: Array[StackTraceElement] = Thread.currentThread().getStackTrace()
+		val stackTraceElements: Array[StackTraceElement] = Thread.currentThread().getStackTrace
 		println(s"Class: ${stackTraceElements(3).getClassName}")
 		println(s"Method: ${stackTraceElements(3).getMethodName}")
 		println(s"Message: $message")
