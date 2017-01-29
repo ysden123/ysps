@@ -5,6 +5,7 @@
 package com.stulsoft.ysps.generics
 
 import scala.reflect.runtime.universe._
+import scala.reflect.ClassTag
 
 /**
   * Playing with TypeTag
@@ -14,13 +15,6 @@ import scala.reflect.runtime.universe._
   */
 object TypeTagEx01 extends App {
 
-  val list: List[Int] = List(1, 2)
-
-  println("==>main")
-
-  println("Recognizer1")
-  val result1 = Recognizer1.recognize1(list)
-
   object Recognizer1 {
     def recognize1[T](x: T)(implicit tag: TypeTag[T]): String =
       tag.tpe match {
@@ -29,6 +23,13 @@ object TypeTagEx01 extends App {
       }
   }
 
+  val list: List[Int] = List(1, 2)
+
+  println("==>main")
+
+  println("Recognizer1")
+  val result1 = Recognizer1.recognize1(list)
   println(result1)
+
   println("<==main")
 }
