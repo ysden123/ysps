@@ -16,7 +16,7 @@ object NumOps extends App {
     x + 1
   }
 
-  case class Test1[T: ClassTag](val x: T) {
+  case class Test1[T: ClassTag](x: T) {
     def f(y: Double): Double = {
       x.asInstanceOf[Double] + y
     }
@@ -26,7 +26,7 @@ object NumOps extends App {
     }
   }
 
-  case class Test2[T: ClassTag](val x: Array[T]) {
+  case class Test2[T: ClassTag](x: Array[T]) {
     def f(y: Array[Double]): Array[Double] = {
       y.indices.foreach(i =>
         x(i) = (x(i).asInstanceOf[Double] + y(i)).asInstanceOf[T]
@@ -50,4 +50,6 @@ object NumOps extends App {
 
   println(s"""Test2(Array(1.0, 2.0)).f(Array(10.0, 20.0)) = ${Test2(Array(1.0, 2.0)).f(Array(10.0, 20.0)).mkString(", ")}""")
   println(s"""Test2(Array(1, 2)).f(Array(101, 202)) = ${Test2(Array(1, 2)).f(Array(101, 202)).mkString(", ")}""")
+  // error:
+//  println(s"""Test2(Array(11.0, 22.0)).f(Array(101, 202)) = ${Test2(Array(11.0, 22.0)).f(Array(101, 202)).mkString(", ")}""")
 }
