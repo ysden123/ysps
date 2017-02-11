@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit
   *
   * @author Yuriy Stul
   */
-object BechmarkEx01 extends App {
+object BenchmarkEx01 extends App {
   private def scalaDouble(): Unit = {
     println("==>scalaDouble")
     val start = System.nanoTime
