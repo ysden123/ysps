@@ -30,5 +30,11 @@ object Conf1 extends App with LazyLogging {
   logger.info("systest.getString(\"url\"): {}", systest.getString("url"))
   logger.info("systest.getString(\"maxNum\"): {}", systest.getString("maxNum"))
 
+  val mail = conf1.getConfig("mail")
+  mail.entrySet.forEach(e=> logger.info(s"Name: ${e.getKey}, mail: ${e.getValue}") )
+  logger.info(s"""mail.getString("Bob"): ${mail.getString("Bob")}""")
+//Exception  logger.info(s"""mail.getString("bob"): ${mail.getString("bob")}""")
+//Exception  logger.info(s"""mail.getString("ERROR"): ${mail.getString("ERROR")}""")
+
   logger.info("End")
 }
