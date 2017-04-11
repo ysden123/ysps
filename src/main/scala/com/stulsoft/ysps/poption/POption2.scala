@@ -21,7 +21,7 @@ object POption2 extends App {
     println(s"person.address: ${person.address}")
 
     val address = person.address
-    val city = address.map(a => a.city)
+    val city = address.map(_.city)
     println(s"city: $city")
     println("<==test1")
   }
@@ -29,7 +29,7 @@ object POption2 extends App {
   def test2(): Unit = {
     println("==>test2")
     val person = Option(Some(Person("test", None)))
-    val address = person.flatMap(p => p.value.address)
+    val address = person.flatMap(_.value.address)
     println(s"address: $address")
     println("<==test2")
   }
@@ -37,7 +37,7 @@ object POption2 extends App {
   def test3(): Unit = {
     println("==>test3")
     val person = Option(Some(Person("test", Some(Address("the city")))))
-    val city = person.flatMap(p => p.value.address.map(a => a.city))
+    val city = person.flatMap(_.value.address.map(_.city))
     println(s"city: $city")
     println("<==test3")
   }
@@ -45,7 +45,7 @@ object POption2 extends App {
   def test4(): Unit = {
     println("==>test4")
     val person = Option(Some(Person("test", None)))
-    val city = person.flatMap(p => p.value.address.map(a => a.city))
+    val city = person.flatMap(_.value.address.map(_.city))
     println(s"city: $city")
     println("<==test4")
   }
@@ -53,7 +53,7 @@ object POption2 extends App {
   def test5(): Unit = {
     println("==>test5")
     val person = Option(Some(Person("test", None)))
-    val city = person.map(p => p.value.address).flatMap(a => if (a.isDefined) Some(a.get.city) else None)
+    val city = person.map(_.value.address).flatMap(a => if (a.isDefined) Some(a.get.city) else None)
     println(s"city: $city")
 
     println("<==test5")
@@ -62,7 +62,7 @@ object POption2 extends App {
   def test6(): Unit = {
     println("==>test6")
     val person = Option(Some(Person("test", Some(Address("the city")))))
-    val city = person.map(p => p.value.address).flatMap(a => if (a.isDefined) Some(a.get.city) else None)
+    val city = person.map(_.value.address).flatMap(a => if (a.isDefined) Some(a.get.city) else None)
     println(s"city: $city")
     println("<==test6")
   }
