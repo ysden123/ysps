@@ -2,12 +2,14 @@
  * Copyright (c) 2017. Yuriy Stul
  */
 
-package com.stulsoft.ysps.forcomprehansiion
+package com.stulsoft.ysps.forcomprehansion
 
 /**
+  * See [[https://gist.github.com/loicdescotte/4044169 Scala for comprehension translation helper]]
+  *
   * @author Yuriy Stul
   */
-object Excample1 extends App {
+object Example1 extends App {
   val books = generateBooks()
   val r1 = for {
     book <- books

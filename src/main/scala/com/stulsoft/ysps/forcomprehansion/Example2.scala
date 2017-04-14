@@ -2,10 +2,12 @@
  * Copyright (c) 2017. Yuriy Stul
  */
 
-package com.stulsoft.ysps.forcomprehansiion
+package com.stulsoft.ysps.forcomprehansion
 
 /**
   * For with comprehension is more shorter (concise) and more clear (readable)
+  *
+  * See [[https://gist.github.com/loicdescotte/4044169 Scala for comprehension translation helper]]
   *
   * @author Yuriy Stul
   */
