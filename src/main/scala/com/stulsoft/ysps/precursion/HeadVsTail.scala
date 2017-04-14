@@ -15,7 +15,7 @@ object HeadVsTail extends App {
 
   def test(iteration: Int): Unit = {
     println(s"\nIteration $iteration")
-    val list = List.range(1, 1000) // 10000 - StackOverflowError in line 422
+    val list = List.range(1, 1000) // 10000 - StackOverflowError in line 42
     var start = System.nanoTime()
 
     println(sum1(list))
