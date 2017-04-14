@@ -45,7 +45,7 @@ object POption1 extends App {
   private def showResult3(o: Option[String], comment: String): Unit = {
     print(s"$comment ")
     o match {
-      case Some(s) => println(s"o: $s")
+      case Some(x) => println(s"o: $x")
       case None => println(s"o: not specified")
     }
   }

@@ -24,7 +24,7 @@ object EitherSample {
     val result: Either[String, Int] = try {
       Right(in.toInt)
     } catch {
-      case e: Exception =>
+      case _: Exception =>
         Left(in)
     }
 
@@ -54,14 +54,14 @@ object EitherSample {
     println("<==test2")
   }
 
-  def validate(t: String): Either[String, String] = {
-    if (t.nonEmpty) Right(t) else Left("***ERROR")
-  }
-
   def test3(): Unit ={
     println("==>test3")
     println(s"""validate("") is ${validate("")}""")
     println(s"""validate("abc") is ${validate("abc")}""")
     println("<==test3")
+  }
+
+  def validate(t: String): Either[String, String] = {
+    if (t.nonEmpty) Right(t) else Left("***ERROR")
   }
 }
