@@ -13,8 +13,8 @@ object Example2 {
   def main(args: Array[String]): Unit = {
     println("==>main")
     val s = new Service with ReadWriteDB
-    println(s"s.read(): ${s.read()}")
-    println(s"s.write(): ${s.write()}")
+    println(s"${s.reading}")
+    println(s"${s.writing}")
     println("<==main")
   }
 
