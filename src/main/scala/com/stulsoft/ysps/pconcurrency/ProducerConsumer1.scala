@@ -9,6 +9,7 @@ import java.util.concurrent.atomic.AtomicInteger
 import com.typesafe.scalalogging.LazyLogging
 
 import scala.concurrent.{Await, Future}
+import scala.util.Random
 
 /**
   * Playing with notify/wait (producer/consumer)
@@ -55,7 +56,7 @@ object ProducerConsumer1 extends App with LazyLogging {
         count.getAndIncrement()
         count.notify()
       }
-      Thread.sleep(700)
+      Thread.sleep(Random.nextInt(1001))
     }
   }
 
@@ -66,7 +67,7 @@ object ProducerConsumer1 extends App with LazyLogging {
         count.wait()
       }
       logger.info(s"Consume message ${count.get()}")
-      Thread.sleep(800)
+      Thread.sleep(Random.nextInt(1001))
       count.getAndDecrement()
     }
   }
