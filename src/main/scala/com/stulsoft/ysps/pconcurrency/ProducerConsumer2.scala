@@ -12,11 +12,11 @@ import scala.concurrent.{Await, Future}
 import scala.util.Random
 
 /**
-  * Playing with notify/wait (producer/consumer)
+  * Playing with notifyAll/wait (producer/consumer)
   *
   * @author Yuriy Stul
   */
-object ProducerConsumer1 extends App with LazyLogging {
+object ProducerConsumer2 extends App with LazyLogging {
 
   import scala.concurrent.ExecutionContext.Implicits.global
   import scala.concurrent.duration._
@@ -54,7 +54,7 @@ object ProducerConsumer1 extends App with LazyLogging {
         }
         logger.info("Add message")
         count.getAndIncrement()
-        count.notify()
+        count.notifyAll()
       }
       val delay = Random.nextInt(1001)
       logger.info(s"Delay $delay ms")
