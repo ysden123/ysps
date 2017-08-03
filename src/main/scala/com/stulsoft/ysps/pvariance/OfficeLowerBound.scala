@@ -14,13 +14,19 @@ package com.stulsoft.ysps.pvariance
   */
 object OfficeLowerBound extends App {
 
+  test1()
+
   def test1(): Unit = {
     val worker = new YoungWorker("young")
     val boss = new MiddleWorker("middle")
 
-    //    val team = new Team[YoungWorker, MiddleWorker](boss, worker)
-    val team = new Team[MiddleWorker](boss)
-    team.worker =  team.setWorker(worker)
+    val team = new Team[MiddleWorker,YoungWorker](boss, Seq(worker))
+    println(s"Boss ${team.boss.name} says: ${team.boss.order} ")
+    println("Stuff answer:")
+    team.staff.foreach(w => println(s"\tWorker ${w.name} says: ${w.order}" ))
+
+    // Wrong! Type mismatch
+//    val wrongTeam = new Team[YoungWorker,MiddleWorker](worker, Seq(boss))
   }
 
   trait Worker {
@@ -43,14 +49,5 @@ object OfficeLowerBound extends App {
     override def order: String = "Everything will be done"
   }
 
-  class Team[+T](val boss: T) {
-    var worker: Worker = _
-    def setWorker[B >: T](theWorker: B): B = theWorker
-
-    def doWork(): Unit = {
-            println(s"Boss ${boss.name} says ${boss.order}")
-            println(s"Worker ${worker.name} says ${worker.order}")
-    }
-  }
-
+  class Team[W <: Worker, S >: W](val boss: W, val staff: Seq[S])
 }
