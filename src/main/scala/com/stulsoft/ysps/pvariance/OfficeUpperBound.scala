@@ -4,7 +4,7 @@
 
 package com.stulsoft.ysps.pvariance
 
-/** Playing with low bound.
+/** Playing with upper bound.
   *
   * An upper type bound T <: A declares that type variable T refers to a subtype of type A.
   *
