@@ -30,7 +30,7 @@ object PMatch {
 
   def test2(): Unit = {
     println("==>test2")
-    val t = "123";
+    val t = "123"
     val r = t match {
       case "123" => 1
       case _ => 0
@@ -44,14 +44,14 @@ object PMatch {
     println("==>test3")
     var t = "123"
     var r = t match {
-      case s if (s == "123" || s.startsWith("1")) => 1
+      case s if s == "123" || s.startsWith("1") => 1
       case _ => 0
     }
     println(s"t=$t, r=$r")
 
     t = "rtyrtyrty"
     r = t match {
-      case s if (s == "123" || s.startsWith("1")) => 1
+      case s if s == "123" || s.startsWith("1") => 1
       case _ => 0
     }
     println(s"t=$t, r=$r")
