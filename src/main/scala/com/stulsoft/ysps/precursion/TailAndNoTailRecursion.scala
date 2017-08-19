@@ -19,7 +19,7 @@ object TailAndNoTailRecursion extends App {
   /**
     * Test runner
     */
-  def test(list: List[_]): Unit = {
+  def test[T](list: List[T]): Unit = {
     println(s"(1) $list -> ${listLength1(list)}")
     println(s"(2) $list -> ${listLength2(list)}")
   }
@@ -30,7 +30,7 @@ object TailAndNoTailRecursion extends App {
     * @param list the list
     * @return list length
     */
-  def listLength1(list: List[_]): Int = {
+  def listLength1[T](list: List[T]): Int = {
     if (list == Nil) 0
     else 1 + listLength1(list.tail)
   }
@@ -41,11 +41,11 @@ object TailAndNoTailRecursion extends App {
     * @param list the list
     * @return list length
     */
-  def listLength2(list: List[_]): Int = {
+  def listLength2[T](list: List[T]): Int = {
     @tailrec
-    def listLength(currentList: List[_], currentLength: Int): Int = currentList match {
+    def listLength(currentList: List[T], currentLength: Int): Int = currentList match {
       case Nil => currentLength
-      case head :: tail => listLength(tail, currentLength + 1)
+      case _ :: tail => listLength(tail, currentLength + 1)
     }
 
     listLength(list, 0)
