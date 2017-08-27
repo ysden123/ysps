@@ -13,5 +13,7 @@ import com.typesafe.scalalogging.LazyLogging
 object ImplicitClassTest extends App with LazyLogging {
   logger.info("Start")
   logger.info(""""Hey".increment: {}""", "Hey".increment)
+  logger.info(""""Hey".decrement: {}""", "Hey".decrement)
+  logger.info(""""Hey".replacement: {}""", "Hey".replacement('X'))
   logger.info("End")
 }

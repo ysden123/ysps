@@ -23,6 +23,19 @@ object StringUtils {
       * @return incremented string
       */
     def increment: String = s.map(c => (c + 1).toChar)
+
+    /** Decrements eazch character
+      *
+      * @return decremented string
+      */
+    def decrement: String = s.map(c => (c - 1).toChar)
+
+    /** Replaced each character with replacement
+      *
+      * @param r replacement character
+      * @return replaced string
+      */
+    def replacement(r:Char):String = s.map(_ => r)
   }
 
 }
