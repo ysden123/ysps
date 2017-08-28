@@ -22,4 +22,19 @@ object Example5 extends App {
     println(s"$i,$j")
   }
 
+  var continue = true
+  for (i <- 1 to 10; if continue) {
+    println(s"i=$i")
+    if (i > 5)
+      continue = false
+  }
+
+  continue = true
+  for (i <- 1 to 10;
+       j <- 1 to 2
+       if continue) {
+    println(s"i=$i, j=$j")
+    if (i > 5)
+      continue = false
+  }
 }
