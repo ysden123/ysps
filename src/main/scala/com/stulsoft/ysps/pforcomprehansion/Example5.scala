@@ -33,8 +33,21 @@ object Example5 extends App {
   for (i <- 1 to 10;
        j <- 1 to 2
        if continue) {
-    println(s"i=$i, j=$j")
+    println(s"(1)i=$i, j=$j")
     if (i > 5)
       continue = false
   }
+
+  continue = false
+  for (i <- 1 to 10;
+       j <- 1 to 2
+       if continue) {
+    println(s"(2) i=$i, j=$j")
+    if (i > 5)
+      continue = false
+  }
+
+  for (i <- 1 to 5 if continue)
+    println(s"(3) i=$i")
+
 }
