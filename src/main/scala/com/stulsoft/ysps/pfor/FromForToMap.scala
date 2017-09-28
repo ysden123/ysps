@@ -9,6 +9,7 @@ import scala.util.{Success, Try}
 object FromForToMap extends App {
   testWithTry()
   testWithOption()
+  testWithOption2()
 
   def testWithTry(): Unit = {
     testWithFor()
@@ -85,5 +86,45 @@ object FromForToMap extends App {
 
       println(s"testWithMap: result is $result")
     }
+  }
+
+  def testWithOption2(): Unit = {
+    println("==>testWithOption2")
+    testWithFor()
+    testWithMap()
+
+    def getProduct(id: String): Option[String] = {
+      None
+    }
+    def getPrice(product: String): Option[Double] = {
+      Some(10.0 + product.length)
+    }
+
+    def calculateProductPrice(product: String, price: Double): Option[Double] = {
+      Some(product.length * price)
+    }
+
+    def testWithFor(): Unit = {
+      val result = for {
+        product <- getProduct("test")
+        price <- getPrice(product)
+        calculatedPrice <- calculateProductPrice(product, price)
+        if calculatedPrice > 10
+      } yield (product, calculatedPrice)
+
+      println(s"testWithFor: result is $result")
+    }
+
+    def testWithMap(): Unit = {
+      val result = getProduct("test").flatMap { product =>
+        getPrice(product).flatMap { price =>
+          calculateProductPrice(product, price).filter(p => p > 10)
+            .map { p => (product, p) }
+        }
+      }
+
+      println(s"testWithMap: result is $result")
+    }
+    println("<==testWithOption2")
   }
 }
