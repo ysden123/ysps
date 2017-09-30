@@ -11,7 +11,7 @@ import scala.concurrent.Future
 import scala.util.{Failure, Success}
 
 /**
-  * Demonstates usage Future with "andThen"
+  * Demonstrates usage Future with "andThen"
   *
   * Created by Yuriy Stul on 10/30/2016.
   */
