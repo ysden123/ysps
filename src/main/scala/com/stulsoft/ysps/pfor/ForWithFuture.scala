@@ -46,6 +46,9 @@ object ForWithFuture extends App {
     "The job2 with " + param
   }
 
+  /**
+    * ''Future'' with ''flatMap''
+    */
   def test2(): Unit = {
     println("==>test2")
     val f = job1().flatMap {
