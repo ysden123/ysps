@@ -11,7 +11,7 @@ import scala.concurrent.Future
 import scala.util.{Failure, Success}
 
 /**
-  * Demonstates usage Future with "andThen"
+  * Demonstrates usage Future with "andThen"
   *
   * Created by Yuriy Stul on 10/30/2016.
   */
@@ -35,5 +35,26 @@ object FutureWithAndThen extends App with LazyLogging {
     logger.info("End")
   }
 
+  def test2(): Unit = {
+    logger.info("Start")
+
+    val f = Future {
+      Thread.sleep(500)
+      5
+    }
+
+    f andThen {
+      case r => logger.info("Side-effecting actions ...")
+    } andThen {
+      case Failure(t) => logger.error("Error: {}", t)
+      case Success(v) => logger.info("Result: {}", v)
+    }
+
+    Thread.sleep(1000)
+
+    logger.info("End")
+  }
+
   test1()
+  test2()
 }

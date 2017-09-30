@@ -1,4 +1,8 @@
-package com.stulsoft.ysps.pfor
+/*
+ * Copyright (c) 2017. Yuriy Stul
+ */
+
+package com.stulsoft.ysps.pforcomprehansion
 
 import scala.util.{Success, Try}
 
