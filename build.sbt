@@ -3,8 +3,8 @@ import sbt.Keys.scalacOptions
 lazy val root = (project in file(".")).
   settings(
     name := "ysps",
-    version := "1.0.1",
-    scalaVersion := "2.12.3",
+    version := "1.0.2",
+    scalaVersion := "2.12.4",
 
     libraryDependencies ++= {
       val akkaVersion = "2.4.14"
