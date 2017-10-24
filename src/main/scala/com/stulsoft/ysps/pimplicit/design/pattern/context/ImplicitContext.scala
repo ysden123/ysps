@@ -6,7 +6,8 @@ package com.stulsoft.ysps.pimplicit.design.pattern.context
 
 import scala.concurrent.{ExecutionContext, Future}
 
-/**
+/** Examples of Implicit context usage
+  *
   * @author Yuriy Stul
   */
 class ImplicitContext {
