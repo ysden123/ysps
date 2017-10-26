@@ -60,6 +60,7 @@ class TypeClassImplicit {
 
     }
 
+    import Jsonable._
     def convertToJson[T](x: T)(implicit converter: Jsonable[T]): Json = {
       converter.serialize(x)
     }
