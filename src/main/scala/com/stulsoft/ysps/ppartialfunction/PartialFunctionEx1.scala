@@ -7,9 +7,13 @@ package com.stulsoft.ysps.ppartialfunction
   */
 object PartialFunctionEx1 extends App {
   test1()
+  test2()
 
   def test1(): Unit = {
     println("==>test1")
+    /**
+      * Usage of val and match pattern
+      */
     val incAny: PartialFunction[Any, Int] = {
       case i: Int => i + 1
     }
@@ -26,5 +30,44 @@ object PartialFunctionEx1 extends App {
 
     println(s"""List(42,"cat") collect incAny: ${List(42, "cat") collect incAny}""")
     println("<==test1")
+  }
+
+  def test2(): Unit = {
+    println("==>test2")
+
+    /**
+      * Usage of def
+      *
+      * @return
+      */
+    def f1 = new PartialFunction[Int, Int] {
+      override def isDefinedAt(x: Int): Boolean = x != 0
+
+      override def apply(x: Int): Int = 100 / x
+    }
+
+    /**
+      * Usage of val with match patterns and argument validation
+      */
+    val f2: PartialFunction[Int, Int] = {
+      case x if x != 0 => 100 / x
+    }
+
+    println(s"""f1(12): ${f1(12)}""")
+    println(s"""f2(12): ${f2(12)}""")
+    // println(s"""${f1("1")}""") ==> Error: type mismatch
+    // println(s"""${f2("1")}""") ==> Error: type mismatch
+    // println(s"""f1(0): ${f1(0)}""") ==> Error: java.lang.ArithmeticException: / by zero
+    // println(s"""f2(0): ${f2(0)}""") //==> Error: scala.MatchError: 0 (of class java.lang.Integer)
+    if (f1.isDefinedAt(0))
+      println(s"""f1(0): ${f1(0)}""")
+    else
+      println(s"""f1(0) is not defined at 0""")
+
+    if (f2.isDefinedAt(0))
+      println(s"""f2(0): ${f2(0)}""")
+    else
+      println(s"""f2(0) is not defined at 0""")
+    println("<==test2")
   }
 }
