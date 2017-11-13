@@ -8,19 +8,21 @@ package com.stulsoft.ysps.pgenerics
   *
   * @author Yuriy Stul
   */
-object GenericTrait extends App {
+object GenericTrait2 extends App {
 
   val ti1 = TestInt(1)
-  val ti2 = TestInt(2)
-  println(s"makeCompareWith(ti1,ti2)=${makeCompareWith(ti1, ti2)}")
+  val tis1 = Map("first" -> TestInt(2), "second" -> TestInt(3))
+  println(s"makeCompareWith(ti1,tis1)=${makeCompareWith(ti1, tis1)}")
 
-  val ts1 = TestString("1")
-  val ts2 = TestString("2")
-  println(s"makeCompareWith(ts1,ts2)=${makeCompareWith(ts1, ts2)}")
-
-  def makeCompareWith[T](left: TestTrait[T], right: TestTrait[T]): Unit = {
-    val r = left.compareWith(right)
-    println(s"r=$r")
+  def makeCompareWith[T](left: TestTrait[T], rights: Map[String, TestTrait[T]]): Boolean = {
+    val right = rights.get("first")
+    val r = right match {
+      case Some(x: TestTrait[T]) =>
+        left.compareWith(x)
+      case None =>
+        false
+    }
+    r
   }
 
   trait TestTrait[T] {
