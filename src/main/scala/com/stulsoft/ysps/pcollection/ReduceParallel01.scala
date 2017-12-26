@@ -12,7 +12,8 @@ object ReduceParallel01 extends App {
     test2(),
     test3(),
     test4(),
-  ).foreach(println)
+  ).sortBy(r => r.duration)
+    .foreach(println)
 
 
   /**
