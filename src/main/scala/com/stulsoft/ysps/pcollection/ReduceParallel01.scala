@@ -4,6 +4,12 @@ import java.util.concurrent.TimeUnit
 
 /** Playing with reduce in parallel
   *
+  * Using without parallel and with parallel.
+  *
+  * Conclusion: if we want to use reduce with parallel the function in reduce should be associative.
+  *
+  * For instance  {{{(v1,v2)->v1 + v2}}} is good function (associative) and {{{(v1,v2)->v1 - v2}}} is bad function (non-associative)
+  *
   * @author Yuriy Stul.
   */
 object ReduceParallel01 extends App {
@@ -12,6 +18,7 @@ object ReduceParallel01 extends App {
     test2(),
     test3(),
     test4(),
+    test5(),
   ).sortBy(r => r.duration)
     .foreach(println)
 
@@ -64,6 +71,20 @@ object ReduceParallel01 extends App {
     val end = System.nanoTime()
     println("<==test4")
     Result(TimeUnit.NANOSECONDS.toMillis(end - start), "With sum and with parallel", result)
+  }
+
+  /**
+    * With parallel and minus
+    */
+  def test5(): Result = {
+    println("==>test5")
+    val start = System.nanoTime()
+    val result = -(0 to N)
+      .par
+      .reduce((a1, a2) => a1 + a2)
+    val end = System.nanoTime()
+    println("<==test5")
+    Result(TimeUnit.NANOSECONDS.toMillis(end - start), "With parallel and minus", result)
   }
 }
 
