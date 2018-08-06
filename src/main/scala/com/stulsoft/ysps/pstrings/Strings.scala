@@ -10,6 +10,7 @@ object Strings {
     formatting()
     compare()
     outPutter()
+    counting()
     println("<==main")
   }
 
@@ -48,8 +49,15 @@ object Strings {
       case _ => "very bad!"
     })
 
-    println(if (s.toLowerCase == "ttgghh") "very good!" else "very bad!" )
+    println(if (s.toLowerCase == "ttgghh") "very good!" else "very bad!")
 
     println("<==outPutter")
+  }
+
+  def counting(): Unit = {
+    println("==>counting")
+    val text = "123,456,fff"
+    println(s"Number of commas = ${text.count(',' == _)}")
+    println("<==counting")
   }
 }
