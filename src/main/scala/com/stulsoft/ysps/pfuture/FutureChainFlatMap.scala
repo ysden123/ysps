@@ -18,6 +18,7 @@ object FutureChainFlatMap extends App with LazyLogging {
 
   // 1st future
   val f1 = Future {
+    logger.info("In f1")
     Thread.sleep(500)
     "F1"
   }
@@ -26,6 +27,7 @@ object FutureChainFlatMap extends App with LazyLogging {
   val f2 = f1.flatMap {
     theF1 =>
       Future {
+        logger.info("In f2")
         Thread.sleep(500)
         s"$theF1 + 2"
       }
@@ -35,6 +37,7 @@ object FutureChainFlatMap extends App with LazyLogging {
   val f3 = f2.flatMap {
     theF2 =>
       Future {
+        logger.info("In f3")
         Thread.sleep(500)
         theF2 + " + 3"
       }

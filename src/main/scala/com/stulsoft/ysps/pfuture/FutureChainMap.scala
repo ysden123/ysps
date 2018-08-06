@@ -35,7 +35,7 @@ object FutureChainMap extends App with LazyLogging {
       }
   }
 
-  // 2nd future. Waits completion of the 1st future
+  // 2nd future. Waits completion of the 2nd future
   val f3 = f2.map {
     logger.info("In f3 (0)")
     theF2 =>
