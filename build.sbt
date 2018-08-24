@@ -4,7 +4,7 @@ lazy val root = (project in file(".")).
   settings(
     name := "ysps",
     version := "1.0.3",
-    scalaVersion := "2.12.5",
+    scalaVersion := "2.12.6",
 
     libraryDependencies ++= {
       val akkaVersion = "2.4.14"
@@ -22,5 +22,6 @@ lazy val root = (project in file(".")).
       "-deprecation",
       "-feature",
       "-language:implicitConversions",
-      "-language:postfixOps")
+      "-language:postfixOps"
+      )
   )
