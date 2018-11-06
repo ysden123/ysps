@@ -4,7 +4,8 @@ lazy val root = (project in file(".")).
   settings(
     name := "ysps",
     version := "1.0.3",
-    scalaVersion := "2.12.6",
+    scalaVersion := "2.12.7",
+    javacOptions ++= Seq("-source", "11"),
 
     libraryDependencies ++= {
       val akkaVersion = "2.4.14"
