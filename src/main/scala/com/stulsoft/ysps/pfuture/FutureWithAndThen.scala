@@ -24,7 +24,7 @@ object FutureWithAndThen extends App with LazyLogging {
     }
 
     f andThen {
-      case r => logger.info("Side-effecting actions ...")
+      case _ => logger.info("Side-effecting actions ...")
     } andThen {
       case Failure(t) => logger.error("Error: {}", t)
       case Success(v) => logger.info("Result: {}", v)
@@ -44,7 +44,7 @@ object FutureWithAndThen extends App with LazyLogging {
     }
 
     f andThen {
-      case r => logger.info("Side-effecting actions ...")
+      case _ => logger.info("Side-effecting actions ...")
     } andThen {
       case Failure(t) => logger.error("Error: {}", t)
       case Success(v) => logger.info("Result: {}", v)
