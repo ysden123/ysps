@@ -31,6 +31,16 @@ object POptionSum extends App {
       Option.empty
   }
 
+  def func3(items: Seq[Container]): Option[Double] = {
+    var calculated = false
+    var sum: Double = 0.0
+    items.foreach(item => item.total.foreach(total => {sum += total;calculated = true}))
+    if (calculated)
+      Option(sum)
+    else
+      Option.empty
+  }
+
   def test1(): Unit = {
     println("==>test1")
     var result = func1(List(Container("1", Option(1.0)), Container("2", Option.empty)))
@@ -75,9 +85,32 @@ object POptionSum extends App {
     println("<==test2")
   }
 
+  def test3(): Unit = {
+    println("==>test3")
+    var result = func2(List(Container("1", Option(1.0)), Container("2", Option.empty)))
+    if (result.isDefined)
+      println(s"result=${result.get}")
+    else
+      println("Undefined")
+
+    result = func2(List(Container("1", Option(1.0)), Container("2", Option(2.0))))
+    if (result.isDefined)
+      println(s"result=${result.get}")
+    else
+      println("Undefined")
+
+    result = func2(List(Container("1", Option.empty), Container("2", Option.empty)))
+    if (result.isDefined)
+      println(s"result=${result.get}")
+    else
+      println("Undefined")
+    println("<==test3")
+  }
+
   println("Start")
   test1()
   test2()
+  test3()
   println("End")
 }
 
