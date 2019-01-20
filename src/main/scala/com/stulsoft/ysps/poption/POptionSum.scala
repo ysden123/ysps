@@ -34,7 +34,10 @@ object POptionSum extends App {
   def func3(items: Seq[Container]): Option[Double] = {
     var calculated = false
     var sum: Double = 0.0
-    items.foreach(item => item.total.foreach(total => {sum += total;calculated = true}))
+    items.foreach(item => item.total.foreach(total => {
+      sum += total
+      calculated = true
+    }))
     if (calculated)
       Option(sum)
     else
@@ -87,19 +90,19 @@ object POptionSum extends App {
 
   def test3(): Unit = {
     println("==>test3")
-    var result = func2(List(Container("1", Option(1.0)), Container("2", Option.empty)))
+    var result = func3(List(Container("1", Option(1.0)), Container("2", Option.empty)))
     if (result.isDefined)
       println(s"result=${result.get}")
     else
       println("Undefined")
 
-    result = func2(List(Container("1", Option(1.0)), Container("2", Option(2.0))))
+    result = func3(List(Container("1", Option(1.0)), Container("2", Option(2.0))))
     if (result.isDefined)
       println(s"result=${result.get}")
     else
       println("Undefined")
 
-    result = func2(List(Container("1", Option.empty), Container("2", Option.empty)))
+    result = func3(List(Container("1", Option.empty), Container("2", Option.empty)))
     if (result.isDefined)
       println(s"result=${result.get}")
     else
