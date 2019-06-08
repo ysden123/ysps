@@ -3,8 +3,8 @@ import sbt.Keys.scalacOptions
 lazy val root = (project in file(".")).
   settings(
     name := "ysps",
-    version := "1.0.4",
-    scalaVersion := "2.12.7",
+    version := "1.0.5",
+    scalaVersion := "2.12.8",
     javacOptions ++= Seq("-source", "11"),
 
     libraryDependencies ++= {
