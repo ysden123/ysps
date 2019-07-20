@@ -74,7 +74,7 @@ object FutureWithAndThen2 extends App with LazyLogging {
       _ <- Future {
         logger.info("(3) finish")
       }
-    } yield Unit
+    } yield ()
     Await.result(result, Duration.Inf)
     logger.info("<==correctChain")
   }
