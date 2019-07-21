@@ -1,6 +1,7 @@
 package com.stulsoft.ysps.prange
 
 import com.stulsoft.ysps.util.BenchmarkMaster
+import scala.collection.parallel.CollectionConverters._
 
 /** Playing with reduce in parallel
   *

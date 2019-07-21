@@ -1,6 +1,7 @@
 package com.stulsoft.ysps.pcollection
 
 import java.util.concurrent.TimeUnit
+import scala.collection.parallel.CollectionConverters._
 
 /** Playing with reduce in parallel
   *

@@ -18,7 +18,8 @@ object BenchmarkEx01 extends App {
     println("==>scalaDouble")
     val start = System.nanoTime
     var dResult: Double = 0.0
-    (1.0 to 20000.0 by 1.3).foreach(d => {
+
+    Range.BigDecimal(1.0, 20000.0, 1.3).map(_.toDouble).foreach(d => {
       val dd: Double = 1.23 * d
       dResult = dResult + dd
     })
@@ -31,7 +32,7 @@ object BenchmarkEx01 extends App {
     println("==>javaDouble")
     val start = System.nanoTime
     var dResult: java.lang.Double = 0.0
-    (1.0 to 20000.0 by 1.3).foreach(d => {
+    Range.BigDecimal(1.0, 20000.0, 1.3).map(_.toDouble).foreach(d => {
       val dd: java.lang.Double = 1.23 * d
       dResult = dResult + dd
     })
