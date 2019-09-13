@@ -16,6 +16,7 @@ object MapWithFlatMap1 extends App {
   test1()
   test2()
   test3()
+  test4()
 
   def test1(): Unit = {
     println("==>test1")
@@ -27,7 +28,7 @@ object MapWithFlatMap1 extends App {
     println(s"m1: $m1")
 
     val l2 = a1.map(i => i.get)
-    println(s"l2: $l2")
+    println(s"l2: $l2") // l2: ArraySeq(List(Person22(111), Person22(222)), List(Person22(33)), List(Person22(444), Person22(555)))
   }
 
   def test2(): Unit = {
@@ -52,7 +53,7 @@ object MapWithFlatMap1 extends App {
     println(s"l3: $l3")
 
     val l4 = l3.toList
-    println(s"l4: $l4")
+    println(s"l4: $l4") // 4: List(Person22(111), Person22(222), Person22(444), Person22(555))
   }
 
   def test3(): Unit = {
@@ -61,9 +62,18 @@ object MapWithFlatMap1 extends App {
     println(s"a1: $a1")
 
     val l1 = a1.flatMap(i => i.getOrElse(Nil)).toList
-    println(s"l1: $l1")
+    println(s"l1: $l1") // l1: List(Person22(111), Person22(222), Person22(444), Person22(555))
   }
+  
+  def test4(): Unit = {
+    println("==>test4")
+    val a1 = generatePersons2()
+    println(s"a1: $a1")
 
+    val l1 = a1.map(i => i.getOrElse(Nil)).toList
+    println(s"l1: $l1") // List(List(Person22(111), Person22(222)), List(), List(Person22(444), Person22(555)))
+  }
+  
   def generatePersons(): ArraySeq[Try[List[Person22]]] = {
     ArraySeq.from(List(
       Success(List(Person22("111"), Person22("222"))),
