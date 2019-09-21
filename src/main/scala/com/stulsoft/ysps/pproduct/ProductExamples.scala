@@ -30,7 +30,7 @@ object ProductExamples extends App {
   println(s"p13._2 = ${p13._2}")
 
   case class Test(name:String, passed:Boolean, error:String)
-  var t1 = Test("Chicken Little", false, "the sky is falling")
+  var t1 = Test("Chicken Little", passed = false, "the sky is falling")
 
   //>> t1.productArity = 3
   println(s"t1.productArity = ${t1.productArity}")
