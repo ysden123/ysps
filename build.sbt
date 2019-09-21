@@ -4,7 +4,7 @@ lazy val root = (project in file(".")).
   settings(
     name := "ysps",
     version := "1.0.7",
-    scalaVersion := "2.13.0",
+    scalaVersion := "2.13.1",
     javacOptions ++= Seq("-source", "11"),
 
     libraryDependencies ++= {

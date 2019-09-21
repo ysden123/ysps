@@ -12,7 +12,7 @@ object FizzBuzz extends App {
 
   def test1(): Unit = {
     println("==>test1")
-    Stream(1 to 10: _*).map(FizzBuzzADT(_)).foreach(println)
+    LazyList(1 to 10: _*).map(FizzBuzzADT(_)).foreach(println)
     println("<==test1")
   }
 
@@ -21,7 +21,7 @@ object FizzBuzz extends App {
     val even: Int => Boolean = i => i % 2 == 0
 
     // Pretend the Stream[Int] came from somewhere else
-    Stream(1 to 10: _*).map(FizzBuzzADT(_)).foreach {
+    LazyList(1 to 10: _*).map(FizzBuzzADT(_)).foreach {
       case a@Fizz(i) if even(i) => println(a)
       case a@Buzz(i) if even(i) => println(a)
       case a@FizzBuzz(i) if even(i) => println(a)
@@ -34,7 +34,7 @@ object FizzBuzz extends App {
 
   def test3(): Unit = {
     println("==>test3")
-    Stream(1 to 10: _*).map(FizzBuzzADT(_)).foreach {
+    LazyList(1 to 10: _*).map(FizzBuzzADT(_)).foreach {
       case Fizz(_) => // Down with the bloody bad Fizz
       case x => println(x)
     }
