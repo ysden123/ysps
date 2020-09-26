@@ -7,7 +7,7 @@
 
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
         <!-- path to your log file, where you want to store logs -->
-        <file>log/ysps.log</file>
+        <file>log/ysps-test.log</file>
         <append>false</append>
         <encoder>
             <pattern>%d{YYYY/mm/dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n</pattern>
