@@ -11,12 +11,12 @@ object OptionListConverter {
     * @tparam T type of the values
     * @return collection with significant items.
     */
-  def extract[T](collection: Traversable[Option[T]]): Traversable[T] = {
+  def extract[T](collection: Iterable[Option[T]]): Iterable[T] = {
     collection.filter(_.isDefined).map(_.get)
   }
 }
 
-object OptionListConverterTest extends App {
+object OptionListConverterRunner extends App {
   val l: List[Option[String]] = List(Some("text1"), None, Some("text2"))
   println(s"l: $l")
   val r1 = OptionListConverter.extract(l)

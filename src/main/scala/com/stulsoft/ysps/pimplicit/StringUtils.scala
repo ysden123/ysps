@@ -30,12 +30,12 @@ object StringUtils {
       */
     def decrement: String = s.map(c => (c - 1).toChar)
 
-    /** Replaced each character with replacement
+    /** Replaces each character with replacement
       *
       * @param r replacement character
       * @return replaced string
       */
-    def replacement(r:Char):String = s.map(_ => r)
+    def replacement(r: Char): String = s.map(_ => r)
   }
 
 }
