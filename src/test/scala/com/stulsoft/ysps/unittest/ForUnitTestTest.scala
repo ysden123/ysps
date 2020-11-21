@@ -1,12 +1,13 @@
 package com.stulsoft.ysps.unittest
 
-import org.scalatest.{FunSpec, Matchers}
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers
 
 /**
-  * @author Yuriy Stul.
-  *         Created on 9/15/2016.
-  */
-class ForUnitTestTest extends FunSpec with Matchers {
+ * @author Yuriy Stul.
+ *         Created on 9/15/2016.
+ */
+class ForUnitTestTest extends AnyFunSpec with Matchers {
   describe("ForUnitTest") {
     describe("#test") {
       it("should run test") {
@@ -16,6 +17,7 @@ class ForUnitTestTest extends FunSpec with Matchers {
         t.test()
       }
     }
+
     describe("#increase") {
       it("should increase by 1") {
         val t = new ForUnitTest

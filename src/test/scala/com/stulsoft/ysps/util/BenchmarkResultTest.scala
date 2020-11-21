@@ -1,11 +1,13 @@
 package com.stulsoft.ysps.util
 
-import org.scalatest.{FlatSpec, Matchers}
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
+
 
 /**
   * @author Yuriy Stul.
   */
-class BenchmarkResultTest extends FlatSpec with Matchers {
+class BenchmarkResultTest extends AnyFlatSpec with Matchers {
   behavior of "BenchmarkResult"
   "constructor" should "create instance with Integer value" in {
     val r = BenchmarkResult(1, "test", 2)

@@ -1,11 +1,12 @@
 package com.stulsoft.ysps.poption
 
-import org.scalatest.{FlatSpec, Matchers}
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
 /**
   * @author Yuriy Stul.
   */
-class OptionListConverterTest extends FlatSpec with Matchers {
+class OptionListConverterTest extends AnyFlatSpec with Matchers {
   behavior of "OptionListConverter"
 
   "extract" should "handle List" in {

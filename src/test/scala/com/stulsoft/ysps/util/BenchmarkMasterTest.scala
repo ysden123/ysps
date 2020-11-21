@@ -1,11 +1,12 @@
 package com.stulsoft.ysps.util
 
-import org.scalatest.{FlatSpec, Matchers}
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
 /**
   * @author Yuriy Stul.
   */
-class BenchmarkMasterTest extends FlatSpec with Matchers{
+class BenchmarkMasterTest extends AnyFlatSpec with Matchers{
 
   def test1(): (String, Int) = {
     try {
