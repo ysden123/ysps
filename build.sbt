@@ -5,8 +5,8 @@ lazy val loggingVersion = "2.14.0"
 lazy val root = (project in file(".")).
   settings(
     name := "ysps",
-    version := "1.0.9",
-    scalaVersion := "2.13.4",
+    version := "1.0.10",
+    scalaVersion := "2.13.5",
     javacOptions ++= Seq("-source", "11"),
 
     libraryDependencies ++= {
