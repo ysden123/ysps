@@ -16,18 +16,18 @@ import com.typesafe.scalalogging.LazyLogging
 object ImplicitMethod extends App with LazyLogging {
   logger.info("Start")
 
-  private def yo(implicit s: String) = logger.info("Yo, " + s)
+  private def yo(implicit s: String): Unit = logger.info("Yo, " + s)
 
   yo("Yuriy")
 
-  implicit val fred = "Fred"
+  implicit val fred: String = "Fred"
   yo
 
-  private def add(implicit s: Int) = logger.info("{}", s + 1)
+  private def add(implicit s: Int): Unit = logger.info("{}", s + 1)
 
   add(3)
 
-  implicit val four = 4
+  implicit val four: Int = 4
   add
 
   // ERROR: ambiguous implicit values: four and five
