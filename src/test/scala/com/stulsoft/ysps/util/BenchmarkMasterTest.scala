@@ -8,7 +8,7 @@ import org.scalatest.matchers.should.Matchers
   */
 class BenchmarkMasterTest extends AnyFlatSpec with Matchers{
 
-  def test1(): (String, Int) = {
+  val test1: () => (String, Int) = () => {
     try {
       Thread.sleep(100)
     }
@@ -18,7 +18,7 @@ class BenchmarkMasterTest extends AnyFlatSpec with Matchers{
     ("test 1", 123)
   }
 
-  def test2(): (String, Int) = {
+  val test2: () => (String, Int) = () =>  {
     try {
       Thread.sleep(110)
     }
@@ -28,7 +28,7 @@ class BenchmarkMasterTest extends AnyFlatSpec with Matchers{
     ("test 2", 1230)
   }
 
-  def test3(): (String, Int) = {
+  val test3: () => (String, Int) = () => {
     try {
       Thread.sleep(120)
     }

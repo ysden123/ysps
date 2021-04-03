@@ -108,7 +108,7 @@ object CurryExample1 extends App {
     * @param p3 3rd parameter
     * @return result
     */
-  def curryF4(f1: (String) => Int)(p2: String)(p3: Int): Int = {
+  def curryF4(f1: String => Int)(p2: String)(p3: Int): Int = {
     println("==>curryF4")
     f1(p2) * p3
   }
