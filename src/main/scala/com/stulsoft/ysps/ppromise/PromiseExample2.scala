@@ -21,7 +21,7 @@ object PromiseExample2 extends App with LazyLogging {
     */
   def process(): Future[String] = {
     //Initialize a promise
-    val promise = Promise[String]
+    val promise = Promise[String]()
 
     // Do a work asynchronously
     Future {

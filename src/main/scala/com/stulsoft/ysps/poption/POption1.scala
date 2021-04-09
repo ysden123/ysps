@@ -5,10 +5,10 @@
 package com.stulsoft.ysps.poption
 
 /**
-  * Playing with Option
-  *
-  * @author Yuriy Stul
-  */
+ * Playing with Option
+ *
+ * @author Yuriy Stul
+ */
 object POption1 extends App {
 
   var s: Option[String] = _
@@ -54,38 +54,38 @@ object POption1 extends App {
   private def showResult4(o: Option[String], comment: String): Unit = {
     print(s"$comment ")
     o.foreach(s => print(s"o: $s"))
-    println
+    println()
   }
 
   private def showProductArity(o: Option[String], comment: String): Unit = {
     println(s"$comment productArity=${o.productArity}")
   }
 
-  println
+  println()
   println("showResult1")
   showResult1(fooReturnObject, "fooReturnObject")
   showResult1(fooReturnNone, "fooReturnNone")
   showResult1(fooReturnNoneByNull, "fooReturnNoneByNull")
 
-  println
+  println()
   println("showResult2")
   showResult2(fooReturnObject, "fooReturnObject")
   showResult2(fooReturnNone, "fooReturnNone")
   showResult2(fooReturnNoneByNull, "fooReturnNoneByNull")
 
-  println
+  println()
   println("showResult3")
   showResult3(fooReturnObject, "fooReturnObject")
   showResult3(fooReturnNone, "fooReturnNone")
   showResult3(fooReturnNoneByNull, "fooReturnNoneByNull")
 
-  println
+  println()
   println("showResult4")
   showResult4(fooReturnObject, "fooReturnObject")
   showResult4(fooReturnNone, "fooReturnNone")
   showResult4(fooReturnNoneByNull, "fooReturnNoneByNull")
 
-  println
+  println()
   println("showProductArity")
   showProductArity(fooReturnObject, "fooReturnObject")
   showProductArity(fooReturnNone, "fooReturnNone")

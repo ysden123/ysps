@@ -1,4 +1,4 @@
-/**
+/*
   * Copyright (c) 2016, Yuriy Stul. All rights reserved
   */
 
@@ -7,44 +7,43 @@ package com.stulsoft.ysps.plist
 import scala.collection.mutable.ArrayBuffer
 
 /**
-  * Collection operators.
-  *
-  * @author Yuriy Stul
-  *
-  */
+ * Collection operators.
+ *
+ * @author Yuriy Stul
+ *
+ */
 object CollectionOperators {
   def main(args: Array[String]): Unit = {
     println("==>main")
 
-    :+
-    +:
-    plus
-    minus
-    ++
-    --
-    ::
-    :::
-    |
-    &
-    &~
-    +=
-    -=
-    ++=
-    --=
-    +=:
-    ++=:
+    :+()
+    +:()
+    plus()
+    minus()
+    ++()
+    --()
+    ::()
+    :::()
+    |()
+    &()
+    &~()
+    -=()
+    ++=()
+    --=()
+    +=:()
+    ++=:()
 
     println("<==main")
   }
 
   /**
-    * Operator +:
-    *
-    * Adds an element at the beginning of a collection. Returns collection of same type as collection.
-    *
-    * Collection type - Seq
-    */
-  def +: {
+   * Operator +:
+   *
+   * Adds an element at the beginning of a collection. Returns collection of same type as collection.
+   *
+   * Collection type - Seq
+   */
+  def +:(): Unit = {
     println("==>+:")
 
     val c1 = Seq(1, 2, 3)
@@ -57,13 +56,13 @@ object CollectionOperators {
   }
 
   /**
-    * Operator :+
-    *
-    * Adds an element at the end of a collection. Returns collection of same type as collection.
-    *
-    * Collection type - Seq
-    */
-  def :+ {
+   * Operator :+
+   *
+   * Adds an element at the end of a collection. Returns collection of same type as collection.
+   *
+   * Collection type - Seq
+   */
+  def :+(): Unit = {
     println("==>:+")
 
     val c1 = Seq(1, 2, 3)
@@ -76,18 +75,16 @@ object CollectionOperators {
   }
 
   /**
-    * Operator +
-    *
-    * Adds an element and returns a collection of same type as collection
-    */
-  def plus {
+   * Operator +
+   *
+   * Adds an element and returns a collection of same type as collection
+   */
+  def plus(): Unit = {
     println("==>plus")
 
     val c1 = Set(1, 2, 3)
 
     println(s"c1 + 100=${c1 + 100}")
-    // Error: 100 + c1
-    println(s"c1 + (100,110,120)=${c1 + (100, 110, 120)}")
 
     val m1 = Map("a" -> 1, "b" -> 2)
     val m2 = m1 + ("c" -> 3)
@@ -97,17 +94,16 @@ object CollectionOperators {
   }
 
   /**
-    * Operator -
-    *
-    * Deletes an element and returns a collection of same type as collection
-    */
-  def minus {
+   * Operator -
+   *
+   * Deletes an element and returns a collection of same type as collection
+   */
+  def minus(): Unit = {
     println("==>minus")
 
     val c1 = Set(1, 2, 3, 4)
 
     println(s"c1 - 2=${c1 - 2}")
-    println(s"c1 - (2,3)=${c1 - (2, 3)}")
 
     val m1 = Map("a" -> 1, "b" -> 2, "c" -> 3)
     val m2 = m1 - "b"
@@ -117,11 +113,11 @@ object CollectionOperators {
   }
 
   /**
-    * Operator ++
-    *
-    * Adds collection and returns a collection of same type as collection
-    */
-  def ++ {
+   * Operator ++
+   *
+   * Adds collection and returns a collection of same type as collection
+   */
+  def ++(): Unit = {
     println("==>++")
 
     val c1 = List(1, 2, 3)
@@ -135,11 +131,11 @@ object CollectionOperators {
   }
 
   /**
-    * Operator --
-    *
-    * Deletes collection and returns a collection of same type as collection
-    */
-  def -- {
+   * Operator --
+   *
+   * Deletes collection and returns a collection of same type as collection
+   */
+  def --(): Unit = {
     println("==>--")
 
     val c1 = Set(1, 2, 3, 4, 5)
@@ -158,9 +154,9 @@ object CollectionOperators {
   }
 
   /**
-    * Operator ::
-    */
-  def :: {
+   * Operator ::
+   */
+  def ::(): Unit = {
     println("==>::")
     val c1 = List(1, 2, 3)
     val c2 = List(100, 200, 300)
@@ -179,9 +175,9 @@ object CollectionOperators {
   }
 
   /**
-    * Operator :::
-    */
-  def ::: {
+   * Operator :::
+   */
+  def :::(): Unit = {
     println("==>:::")
     val c1 = List(1, 2, 3)
     val c2 = List(100, 200, 300)
@@ -196,9 +192,9 @@ object CollectionOperators {
   }
 
   /**
-    * Operator |
-    */
-  def | {
+   * Operator |
+   */
+  def |(): Unit = {
     println("==>|")
     val c1 = Set(1, 2, 3)
     val c2 = Set(10, 20, 30)
@@ -209,9 +205,9 @@ object CollectionOperators {
   }
 
   /**
-    * Operator &
-    */
-  def & {
+   * Operator &
+   */
+  def &(): Unit = {
     println("==>&")
     val c1 = Set(1, 2, 3)
     val c2 = Set(10, 20, 30)
@@ -225,9 +221,9 @@ object CollectionOperators {
   }
 
   /**
-    * Operator &~
-    */
-  def &~ {
+   * Operator &~
+   */
+  def &~(): Unit = {
     println("==>&~")
     val c1 = Set(1, 2, 3)
     val c2 = Set(10, 20, 30)
@@ -241,23 +237,9 @@ object CollectionOperators {
   }
 
   /**
-    * Operator +=
-    */
-  def += {
-    println("==>+=")
-    val c1 = ArrayBuffer(1, 2, 3)
-
-    println(s"c1 += (10,20,30)=${c1 += (10, 20, 30)}")
-    println(s"c1=$c1")
-    println(s"c1 += 777=${c1 += 777}")
-
-    println("<==+=")
-  }
-
-  /**
-    * Operator ++=
-    */
-  def ++= {
+   * Operator ++=
+   */
+  def ++=(): Unit = {
     println("==>++=")
     val c1 = ArrayBuffer(1, 2, 3)
     val c2 = ArrayBuffer(100, 200, 300)
@@ -269,13 +251,12 @@ object CollectionOperators {
   }
 
   /**
-    * Operator -=
-    */
-  def -= {
+   * Operator -=
+   */
+  def -=(): Unit = {
     println("==>-=")
     val c1 = ArrayBuffer(1, 2, 3)
 
-    println(s"c1 -= (10,2,3)=${c1 -= (10, 2, 3)}")
     println(s"c1=$c1")
 
     val c2 = ArrayBuffer(1, 2, 3)
@@ -287,9 +268,9 @@ object CollectionOperators {
   }
 
   /**
-    * Operator --=
-    */
-  def --= {
+   * Operator --=
+   */
+  def --=(): Unit = {
     println("==>--=")
     val c1 = ArrayBuffer(1, 2, 3, 4, 5, 6)
     val c2 = ArrayBuffer(3, 5)
@@ -301,9 +282,9 @@ object CollectionOperators {
   }
 
   /**
-    * Operator +=:
-    */
-  def +=: {
+   * Operator +=:
+   */
+  def +=:(): Unit = {
     println("==>+=:")
     val c1 = ArrayBuffer(1, 2, 3, 4, 5, 6)
 
@@ -314,9 +295,9 @@ object CollectionOperators {
   }
 
   /**
-    * Operator ++=:
-    */
-  def ++=: {
+   * Operator ++=:
+   */
+  def ++=:(): Unit = {
     println("==>++=:")
     val c1 = ArrayBuffer(1, 2, 3, 4, 5, 6)
     val c2 = ArrayBuffer(17, 19)

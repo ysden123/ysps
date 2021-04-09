@@ -24,6 +24,6 @@ object ContravarianceEx01 extends App with LazyLogging {
 
 //  val incorrectParking: IncorrectParking2[Car] = IncorrectParking2[Vehicle] // ERROR: type mismatch; Vehicle is not type of Car
 
-  val parking: Parking2[Car] = Parking2[Vehicle]
+  val parking: Parking2[Car] = Parking2[Vehicle]()
   logger.info(parking.toString) // ==> Parking2()
 }

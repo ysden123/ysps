@@ -1,6 +1,6 @@
 /**
-  * Copyright (c) 2016, Yuriy Stul. All rights reserved
-  */
+ * Copyright (c) 2016, Yuriy Stul. All rights reserved
+ */
 
 package com.stulsoft.ysps.ptypes
 
@@ -11,69 +11,69 @@ package com.stulsoft.ysps.ptypes
  * *****************************************************/
 
 /**
-  * Companion class.
-  *
-  * Declares a shape with one abstract value member 'area'
-  *
-  * @author Yuriy Stul
-  *
-  */
+ * Companion class.
+ *
+ * Declares a shape with one abstract value member 'area'
+ *
+ * @author Yuriy Stul
+ *
+ */
 trait Shape {
   def area: Double
 }
 
 /**
-  * Specifies the companion object.
-  *
-  * @author Yuriy Stul
-  *
-  */
+ * Specifies the companion object.
+ *
+ * @author Yuriy Stul
+ *
+ */
 object Shape {
 
   /**
-    * Factory method for circle (one parameter).
-    *
-    * @param radius specifies circle radius.
-    * @return instance of the Circle class.
-    */
+   * Factory method for circle (one parameter).
+   *
+   * @param radius specifies circle radius.
+   * @return instance of the Circle class.
+   */
   def apply(radius: Double): Shape = new Circle(radius)
 
   /**
-    * Factory method for rectangle (two parameters).
-    *
-    * @param width  specifies rectangle width
-    * @param height specifies rectangle height
-    * @return instance of the Rectangle class.
-    */
+   * Factory method for rectangle (two parameters).
+   *
+   * @param width  specifies rectangle width
+   * @param height specifies rectangle height
+   * @return instance of the Rectangle class.
+   */
   def apply(width: Double, height: Double): Shape = new Rectangle(width, height)
 
   /**
-    * Implements Shape for circle.
-    *
-    * @author Yuriy Stul
-    *
-    */
+   * Implements Shape for circle.
+   *
+   * @author Yuriy Stul
+   *
+   */
   private class Circle(radius: Double) extends Shape {
     override val area = 3.14 * radius * radius
   }
 
   /**
-    * Implements Shape for rectangle.
-    *
-    * @author Yuriy Stul
-    *
-    */
+   * Implements Shape for rectangle.
+   *
+   * @author Yuriy Stul
+   *
+   */
   private class Rectangle(width: Double, height: Double) extends Shape {
     override val area = width * height
   }
 }
 
 /**
-  * Test application for shapes.
-  *
-  * @author Yuriy Stul
-  *
-  */
+ * Test application for shapes.
+ *
+ * @author Yuriy Stul
+ *
+ */
 object CampanionTest extends App {
 
   // Create instances of circles.
@@ -84,12 +84,12 @@ object CampanionTest extends App {
   val rectangle2 = Shape.apply(5, 6)
 
   /**
-    * Debug output.
-    *
-    * @param name  shape name
-    * @param shape a shape
-    */
-  def debug(name: String, shape: Shape) {
+   * Debug output.
+   *
+   * @param name  shape name
+   * @param shape a shape
+   */
+  def debug(name: String, shape: Shape): Unit = {
     println(s"$name: $shape, area=${shape.area}")
   }
 

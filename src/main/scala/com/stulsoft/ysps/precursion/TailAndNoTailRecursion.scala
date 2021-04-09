@@ -14,7 +14,7 @@ import scala.annotation.tailrec
 object TailAndNoTailRecursion extends App {
 
   test(List(1, 2, 3))
-  test(List('a, 'b, 'c, 'd))
+  test(List(Symbol("a"), Symbol("b"), Symbol("c"), Symbol("d")))
 
   /**
     * Test runner

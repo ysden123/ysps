@@ -16,7 +16,7 @@ import scala.util.Random
 object PPromise extends App {
   println("==>main")
   // Promise can be used to compose type safe future
-  val willYouMarryMe = Promise[Boolean]
+  val willYouMarryMe = Promise[Boolean]()
   willYouMarryMe.future foreach {
     //    case yes => println("Yes! :D")
     _ => println("Yes! :D")

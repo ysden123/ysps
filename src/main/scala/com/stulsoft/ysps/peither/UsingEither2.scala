@@ -29,13 +29,13 @@ object UsingEither2 {
     println("==>getRightOnly")
     var result = getData(false)
     println("Should not fail. Result (not empty):")
-    result.right.foreach {
+    result.foreach {
       _.foreach(println)
     }
 
     result = getData(true)
     println("\nShould fail. Result (empty):")
-    result.right.foreach {
+    result.foreach {
       _.foreach(println)
     }
     println("<==getRightOnly")

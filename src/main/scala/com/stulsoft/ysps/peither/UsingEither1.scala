@@ -33,8 +33,8 @@ object MainAppError {
 
     // Since we asked for the “Good” result, we do some transformation
     // and print out the result.
-    result.right.map("(1) " + _ + " But why do I need right?")
-      .right.foreach(println(_))
+    result.map("(1) " + _ + " But why do I need right?")
+      .foreach(println(_))
     println("<==test1")
   }
 
@@ -43,8 +43,8 @@ object MainAppError {
     val result = getMeMyStringPeasant(true)
 
     // Does nothing!
-    result.right.map("(1) " + _ + " But why do I need right?")
-      .right.foreach(println(_))
+    result.map("(1) " + _ + " But why do I need right?")
+      .foreach(println(_))
 
     // Print the error out to the user
     result.left.foreach(error => println("(2) " + error.msg))

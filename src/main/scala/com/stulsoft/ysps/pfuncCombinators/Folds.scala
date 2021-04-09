@@ -16,9 +16,9 @@ object Folds {
 
   def foldTest(): Unit = {
     println("==>foldTest")
-    val fooList = Foo("Yuriy", 21, 'male) ::
-      Foo("Olga", 20, 'female) ::
-      Foo("Natasha", 15, 'female) ::
+    val fooList = Foo("Yuriy", 21, Symbol("male")) ::
+      Foo("Olga", 20, Symbol("female")) ::
+      Foo("Natasha", 15, Symbol("female")) ::
       Nil
     val r = fooList.fold("") {
       (z, i) => {
@@ -35,19 +35,19 @@ object Folds {
 
   def foldLeftTest(): Unit = {
     println("==>foldLeftTest")
-    val fooList = Foo("Yuriy", 21, 'male) ::
-      Foo("Olga", 20, 'female) ::
-      Foo("Natasha", 15, 'female) ::
+    val fooList = Foo("Yuriy", 21, Symbol("male")) ::
+      Foo("Olga", 20, Symbol("female")) ::
+      Foo("Natasha", 15, Symbol("female")) ::
       Nil
     val stringList = fooList.foldLeft(List[String]()) { (z, f) =>
       val title = f.sex match {
-        case 'male => "Mr."
-        case 'female => "Ms."
+        case Symbol("male") => "Mr."
+        case Symbol("female") => "Ms."
       }
       z :+ s"$title ${f.name} ${f.age}"
     }
     println(stringList)
-    println(stringList(0))
+    println(stringList.head)
     println(stringList(1))
     println(stringList(2))
     println("<==foldLeftTest")

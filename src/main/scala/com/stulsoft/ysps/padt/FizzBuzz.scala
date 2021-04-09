@@ -16,7 +16,7 @@ object FizzBuzz extends App {
     println("<==test1")
   }
 
-  def test2() {
+  def test2(): Unit = {
     println("==>test2")
     val even: Int => Boolean = i => i % 2 == 0
 

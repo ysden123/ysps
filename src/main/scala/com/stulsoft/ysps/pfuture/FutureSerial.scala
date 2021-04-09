@@ -72,12 +72,12 @@ object FutureSerial extends App {
   /**
     * @see [[http://www.michaelpollmeier.com/execute-scala-futures-in-serial-one-after-the-other-non-blocking]]
     */
-  def serialiseFutures[A, B](l: Iterable[A])(fn: A ⇒ Future[B]): Future[List[B]] =
+  def serialiseFutures[A, B](l: Iterable[A])(fn: A => Future[B]): Future[List[B]] =
     l.foldLeft(Future(List.empty[B])) {
-      (previousFuture, next) ⇒
+      (previousFuture, next) =>
         for {
-          previousResults ← previousFuture
-          next ← fn(next)
+          previousResults <- previousFuture
+          next <- fn(next)
         } yield previousResults :+ next
     }
 

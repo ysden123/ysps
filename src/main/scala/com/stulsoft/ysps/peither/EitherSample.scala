@@ -42,15 +42,15 @@ object EitherSample {
     val r: Either[String, Int] = Right(12)
 
     println(s"l.left = ${l.left}")
-    println(s"l.right = ${l.right}")
+    println(s"l.right = $l")
     println(s"r.left = ${r.left}")
-    println(s"r.right = ${r.right}")
+    println(s"r.right = $r")
 
     println("====================")
     println(s"l.left.map(_.size): Either[Int, Int]=${l.left.map(_.length): Either[Int, Int]}")
-    println(s"l.right.map(_.toDouble): Either[String, Double]=${l.right.map(_.toDouble): Either[String, Double]}")
+    println(s"l.right.map(_.toDouble): Either[String, Double]=${l.map(_.toDouble): Either[String, Double]}")
     println(s"r.left.map(_.size): Either[Int, Int]=${r.left.map(_.length): Either[Int, Int]}")
-    println(s"r.right.map(_.toDouble): Either[String, Double]=${r.right.map(_.toDouble): Either[String, Double]}")
+    println(s"r.right.map(_.toDouble): Either[String, Double]=${r.map(_.toDouble): Either[String, Double]}")
     println("<==test2")
   }
 

@@ -5,7 +5,7 @@ package com.stulsoft.ysps.pcollection
 
 import java.util
 
-import scala.collection.JavaConverters._
+import scala.jdk.CollectionConverters._
 
 /**
   * @author Yuriy Stul

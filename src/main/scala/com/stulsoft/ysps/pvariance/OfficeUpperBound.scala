@@ -5,18 +5,17 @@
 package com.stulsoft.ysps.pvariance
 
 /** Playing with upper bound.
-  *
-  * An upper type bound T <: A declares that type variable T refers to a subtype of type A.
-  *
-  * @see [[http://docs.scala-lang.org/tutorials/tour/upper-type-bounds.html Upper Type Bounds]]
-  *
-  * @author Yuriy Stul
-  */
+ *
+ * An upper type bound T <: A declares that type variable T refers to a subtype of type A.
+ *
+ * @see [[http://docs.scala-lang.org/tutorials/tour/upper-type-bounds.html Upper Type Bounds]]
+ * @author Yuriy Stul
+ */
 object OfficeUpperBound extends App {
 
   test1()
 
-  def test1() {
+  def test1(): Unit = {
     println("==>test1")
     val workers = Seq(
       new OfficeWorker[YoungWorker](new YoungWorker("young1")),
@@ -28,7 +27,7 @@ object OfficeUpperBound extends App {
     println("<==test1")
   }
 
-  def test2() {
+  def test2(): Unit = {
     println("==>test2")
     val workers = Seq(
       new OfficeWorker[YoungWorker](new YoungWorker("young21")),
@@ -69,11 +68,11 @@ object OfficeUpperBound extends App {
   }
 
   /**
-    * Class with Low Bound
-    *
-    * @param worker a worker
-    * @tparam T specifies the worker may any subclass of Worker
-    */
+   * Class with Low Bound
+   *
+   * @param worker a worker
+   * @tparam T specifies the worker may any subclass of Worker
+   */
   class OfficeWorker[T <: Worker](worker: T) {
     def doWork(): Unit = {
       println(s"${worker.name} says ${worker.order} ")

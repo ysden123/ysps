@@ -65,16 +65,16 @@ object EnumConversions {
 		val t1: MyType = MyType.Type1
 		println(s"t1 is $t1")
 		demoMyType(t1)
-		println
+		println()
 
 		// Enumerate all values
 		MyType.values.foreach { t => demoMyType(t) }
-		println
+		println()
 
 		// Convert Int to Enumeration
 		val t2 = MyType(2)
 		demoMyType(t2)
-		println
+		println()
 
 		try {
 			val t2e = MyType(123)
@@ -85,22 +85,22 @@ object EnumConversions {
 		// Convert text to Enumeration
 		val t3 = MyType.withName("Type2")
 		demoMyType(t3)
-		println
+		println()
 
 		try {
 			val t3e = MyType.withName("Type2ERROR")
 		} catch {
 			case e: NoSuchElementException => println(s"MyType element with name Type2ERROR doesn't exist! Error: ${e.getMessage}")
 		}
-		println
+		println()
 
 		// Enumerate all values for MyType2
 		MyType2.values.foreach { t => demoMyType2(t) }
-		println
+		println()
 		
 		// Enumeration with initial text values
-		demoMyTypeWithStrValues
-		println
+		demoMyTypeWithStrValues()
+		println()
 
 	}
 
@@ -125,7 +125,7 @@ object EnumConversions {
 	/**
 	 * Demonstrates usage of Enumeration with text values.
 	 */
-	def demoMyTypeWithStrValues {
+	def demoMyTypeWithStrValues(): Unit = {
 		println(s"Values of the MyTypeWithStrValues enumeration: ${MyTypeWithStrValues.values}")
 		val one = MyTypeWithStrValues.One
 		println(s"one = $one")

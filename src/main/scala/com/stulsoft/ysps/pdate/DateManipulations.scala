@@ -77,5 +77,5 @@ object DateManipulations extends App {
 
   extract2()
 
-  testLocalDateTime
+  testLocalDateTime()
 }
