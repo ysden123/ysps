@@ -12,21 +12,25 @@ import scala.util.Random
   */
 object ValVsDef extends App {
   val v1: () => Int = {
+    println("==>v1")
     val r = Random.nextInt() // Evaluates 1 time, when defined!
     () => r
   }
 
   def f2: () => Int = {
+    println("==>f2")
     val r = Random.nextInt() // Evaluates each time, when called!
     () => r
   }
 
   def f3(): Int = {
+    println("==>f3")
     val r = Random.nextInt() // Evaluates each time, when called!
     r
   }
 
   val v2: () => Int = {
+    println("==>v2")
     val r = {
       println("Initializing r in v2")
       Random.nextInt() // Evaluates 1 time, when defined!
@@ -35,11 +39,22 @@ object ValVsDef extends App {
   }
 
   lazy val v3: () => Int = {
+    println("==>v3")
     val r = {
       println("Initializing r in v3")
       Random.nextInt() // Evaluates 1 time, when defined!
     }
     () => r
+  }
+
+  val v4: Int => Int = {
+    println("==>v4")
+    i => i + 2
+  }
+
+  val v5: (Int,String) => Int = {
+    println("==>v5")
+    (i,s) => i + s.length
   }
 
   def test1(): Unit = {
@@ -57,5 +72,12 @@ object ValVsDef extends App {
     println("<==test1")
   }
 
+  def test2(): Unit ={
+    println("==>test3")
+    println(s"v4(44) = ${v4(44)}")
+    println(s"""v5(1,"ab")=${v5(1,"ab")}""")
+  }
+
   test1()
+  test2()
 }
