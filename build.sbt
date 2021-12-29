@@ -23,8 +23,6 @@ lazy val root = (project in file(".")).
         "org.apache.logging.log4j" % "log4j-slf4j-impl" % loggingVersion
       )
     },
-    Compile / scalacOptions += "-author",
-    doc / scalacOptions += "-author",
     scalacOptions ++= Seq(
       "-deprecation",
       "-feature",
