@@ -14,7 +14,7 @@ lazy val root = (project in file(".")).
         "org.scala-lang.modules" %% "scala-parallel-collections" % "1.0.4",
         "com.typesafe.akka" %% "akka-actor" % "2.7.0",
         "com.typesafe" % "config" % "1.4.2",
-        "org.scalatest" %% "scalatest" % "3.2.14" % Test,
+        "org.scalatest" %% "scalatest" % "3.3.0-SNAP3" % Test,
         "com.novocode" % "junit-interface" % "0.11" % Test,
 
         "com.typesafe.scala-logging" %% "scala-logging" % "3.9.5",
